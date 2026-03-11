@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/io_test.dir/examples/io_test.cpp.o -o io_test  -Wl,-rpath,/home/ym/workspace/cpp/CodroidSDK/build_linux libCodroid.so 

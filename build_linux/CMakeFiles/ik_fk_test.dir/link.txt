@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/ik_fk_test.dir/examples/ik_fk_test.cpp.o -o ik_fk_test  -Wl,-rpath,/home/ym/workspace/cpp/CodroidSDK/build_linux libCodroid.so 

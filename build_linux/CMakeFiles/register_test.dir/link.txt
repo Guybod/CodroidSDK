@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/register_test.dir/examples/register_test.cpp.o -o register_test  -Wl,-rpath,/home/ym/workspace/cpp/CodroidSDK/build_linux libCodroid.so 
