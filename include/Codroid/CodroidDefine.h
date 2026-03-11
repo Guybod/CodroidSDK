@@ -357,6 +357,31 @@ namespace Codroid {
         long long timestamp;
     };
 
+    // --- 对应协议的数据结构 ---
+
+    struct RobotStatusPush {
+        int mode;           // 0=手动; 1=自动; 2=远程
+        int state;          // 0=未使能; 1=使能中; 2=空闲; 3=点动中; 4=RunTo; 5=拖动中
+        bool isMoving;      // 是否正在运动
+        double moveRate;    // 自动倍率
+        std::string type;   // 机器人型号
+        std::string stateName;
+    };
+
+    struct RobotPosturePush {
+        std::vector<double> joint; // 关节角 (deg)
+        struct {
+            double x, y, z, a, b, c;
+        } cart; // 笛卡尔坐标
+    };
+
+    struct ProjectStatePush {
+        std::string id;
+        int state;       // 0:空闲, 1:加载, 2:运行, 3:暂停
+        bool isStep;
+        std::map<std::string, int> scriptLines; // 脚本ID -> 行号
+    };
+
 }
 
 #endif
