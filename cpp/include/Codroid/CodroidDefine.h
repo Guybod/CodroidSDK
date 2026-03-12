@@ -1,3 +1,8 @@
+/**
+ * @file CodroidDefine.h
+ * @brief 定义文件
+ */
+
 #ifndef CODROID_DEFINE_H
 #define CODROID_DEFINE_H
 
@@ -85,6 +90,13 @@ namespace Codroid {
         {ExtendArrayType::Int32, "Int32"}, {ExtendArrayType::Float32, "Float32"}
     })
 
+    enum class JogMode {
+        Joint = 1, Line = 2
+     };
+     NLOHMANN_JSON_SERIALIZE_ENUM(JogMode, {
+        {JogMode::Joint, 1}, {JogMode::Line, 2}
+    })
+
     // ========================================================================
     // 2. 运动控制相关 (Motion Control)
     // ========================================================================
@@ -121,11 +133,14 @@ namespace Codroid {
 
     /** @brief @~english Jog Parameters @~chinese 点动参数结构体 */
     struct JogParams {
-        int mode = 2;                   ///< @~english 1:Joint, 2:Line @~chinese 1:关节点动 2:直线点动
+        JogMode mode = JogMode::Line;   ///< @~english 1:Joint, 2:Line @~chinese 1:关节点动 2:直线点动
         double speed = 0.0;             ///< @~english Range -1 to 1 @~chinese 速度范围 -1~1
         int index = 1;                  ///< @~english Axis/Joint index @~chinese 轴/关节序号
-        int coorType = 0;               ///< @~english 0:User, 1:Tool @~chinese 0:用户系 1:工具系
+        CoorType coorType = CoorType::User; ///< @~english User, Tool @~chinese 用户系 工具系
         int coorId = 1;                 ///< @~english Coordinate ID @~chinese 坐标系 ID
+        JogParams() = default;
+        JogParams(JogMode m, double s, int i, CoorType ct = CoorType::User, int cid = 1) 
+            : mode(m), speed(s), index(i), coorType(ct), coorId(cid) {}
     };
 
     /**
@@ -210,29 +225,13 @@ namespace Codroid {
         // 规划位置构造 (Joint/Line Planning)
         MoveToParams(MoveToType t, const MoveToTarget& tgt) : type(t), target(tgt) {}
     };
-
-    /**
-     * @brief @~english Move point @~chinese 运动点结构体
-     */
-    struct MovePoint {
-        std::vector<double> jp; ///< @~english [Optional] Joint position @~chinese [可选] 关节角
-        std::vector<double> cp; ///< @~english [Optional] Cartesian position @~chinese [可选] 笛卡尔位置
-        std::vector<double> rj; ///< @~english [Optional] Reference position @~chinese [可选] 参考位置
-        std::vector<double> ep; ///< @~english [Optional] Extra axes @~chinese [可选] 附加轴
-
-        MovePoint() = default;
-        static MovePoint Joint(const std::vector<double>& j) { MovePoint p; p.jp = j; return p; }
-        static MovePoint Cartesian(const std::vector<double>& c) { MovePoint p; p.cp = c; return p; }
-    };
-
-
     
     // ========================================================================
     // 3. 状态推送相关 (Subscription & Status)
     // ========================================================================
 
     /**
-     * @brief @~english Robot runtime status @~chinese 机器人运行状态 (15.4)
+     * @brief @~english Robot runtime status @~chinese 机器人运行状态
      */
     struct RobotStatus {
         int mode;            ///< @~english 0:Manual, 1:Auto, 2:Remote @~chinese 0:手动, 1:自动, 2:远程
@@ -257,7 +256,7 @@ namespace Codroid {
     };
 
     /**
-     * @brief @~english Robot real-time posture @~chinese 机器人实时位姿 (15.5)
+     * @brief @~english Robot real-time posture @~chinese 机器人实时位姿
      */
     struct RobotPosture {
         std::vector<double> joint; ///< @~english Joints (deg) @~chinese 关节角 (度)
@@ -265,7 +264,7 @@ namespace Codroid {
     };
 
     /**
-     * @brief @~english Project execution state @~chinese 工程执行状态 (15.2)
+     * @brief @~english Project execution state @~chinese 工程执行状态
      */
     struct ProjectState {
         std::string id;           ///< @~english Project ID @~chinese 工程 ID

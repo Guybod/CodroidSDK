@@ -6,13 +6,13 @@ int main() {
     Codroid::CodroidSubscriber sub;
 
     // 订阅位姿回调
-    sub.setPostureCallback([](const Codroid::RobotPosturePush& p) {
+    sub.setPostureCallback([](const Codroid::RobotPosture& p) {
         std::cout << "\r[Posture] Joint: [" 
                   << p.joint[0] << ", " << p.joint[1] << ", " << p.joint[2] << "] " << std::flush;
     });
 
     // 订阅状态回调
-    sub.setStatusCallback([](const Codroid::RobotStatusPush& s) {
+    sub.setStatusCallback([](const Codroid::RobotStatus& s) {
         std::cout << "\n[Status] Mode: " << s.mode 
                   << " | IsMoving: " << (s.isMoving ? "YES" : "NO") 
                   << " | StateName: " << s.stateName << std::endl;

@@ -1,3 +1,8 @@
+/**
+ * @file CodroidControlInterface.h
+ * @brief 控制接口头文件
+ */
+
 #ifndef CODROID_CONTROL_INTERFACE_H
 #define CODROID_CONTROL_INTERFACE_H
 
@@ -7,10 +12,6 @@
 #include <memory>
 #include <string>
 
-/**
- * @file CodroidControlInterface.h
- * @brief 控制接口头文件
- */
 namespace Codroid {
 
 class CODROID_API CodroidControlInterface {
