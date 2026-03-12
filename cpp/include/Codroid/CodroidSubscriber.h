@@ -17,8 +17,8 @@ namespace Codroid {
 using json = nlohmann::json;
 
 // 这里的回调定义可以根据需要增加
-using StatusCallback = std::function<void(const RobotStatusPush&)>;
-using PostureCallback = std::function<void(const RobotPosturePush&)>;
+using StatusCallback = std::function<void(const RobotStatus&)>;
+using PostureCallback = std::function<void(const RobotPosture&)>;
 using VarCallback    = std::function<void(const std::map<std::string, std::string>&)>;
 using LogCallback    = std::function<void(const std::string& msg, int level)>;
 

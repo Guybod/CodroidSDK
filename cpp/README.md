@@ -52,7 +52,6 @@ build_msvc.bat
 
 关键文件：Codroid.dll (运行时必须), Codroid.lib (编译链接必须)。
 
----
 ## 💻 如何在您的项目中使用
 由于本 SDK 未采用 PIMPL 模式隐藏底层依赖，在您的第三方 C++ 项目中引入本 SDK 时，请务必进行以下配置：
 

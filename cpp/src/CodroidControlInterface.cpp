@@ -18,7 +18,6 @@ namespace Codroid {
 
 /**
  * @brief Construct a new Codroid Control Interface object / 创建一个新的 Codroid 控制接口对象
- * @details 初始化双 TCP 通道（指令与订阅）及相关状态变量
  */
 CodroidControlInterface::CodroidControlInterface() 
     : io_context_(), 
@@ -154,7 +153,24 @@ Response CodroidControlInterface::sendCommand(const std::string& type, const nlo
     }
 
     return resp;
-}
+    }   
+
+    void CodroidControlInterface::printResponse(const Codroid::Response& resp) {
+    std::cout << "-----------------------" << std::endl;
+    std::cout << "Request ID: " << resp.id << std::endl;
+    std::cout << "Type:       " << resp.ty << std::endl;
+    
+    if (resp.error_msg.empty()) {
+        std::cout << "Status:     [SUCCESS]" << std::endl;
+        std::cout << "Data:       " << resp.db.dump(4) << std::endl;
+    } else {
+        std::cout << "Status:     [FAILED]" << std::endl;
+        std::cout << "Error:      " << resp.error_msg << std::endl;
+    }
+    std::cout << "-----------------------" << std::endl << std::endl;
+    }
+
+
 
 /**
  * @brief Receive raw data from the Codroid server

@@ -4,28 +4,11 @@
 #include <chrono>
 #include "Codroid/CodroidControlInterface.h"
 
-
-// 辅助函数：打印响应结果
-void printResponse(const std::string& action, const Codroid::Response& resp) {
-    std::cout << "----- " << action << " -----" << std::endl;
-    std::cout << "Request ID: " << resp.id << std::endl;
-    std::cout << "Type:       " << resp.ty << std::endl;
-    
-    if (resp.error_msg.empty()) {
-        std::cout << "Status:     [SUCCESS]" << std::endl;
-        std::cout << "Data:       " << resp.db.dump(4) << std::endl;
-    } else {
-        std::cout << "Status:     [FAILED]" << std::endl;
-        std::cout << "Error:      " << resp.error_msg << std::endl;
-    }
-    std::cout << "-----------------------" << std::endl << std::endl;
-}
-
 void globalVal_test(Codroid::CodroidControlInterface& robot) {
     // 测试获取全局变量列表接口
     std::cout << "Getting Global Variables..." << std::endl;
     auto resVars = robot.getGlobalVars(103);
-    printResponse("Get Global Variables", resVars);
+    Codroid::CodroidControlInterface::printResponse(resVars);
 
     // 测试保存全局变量接口
     std::map<std::string, Codroid::Variable> myVars;
@@ -56,33 +39,33 @@ void globalVal_test(Codroid::CodroidControlInterface& robot) {
 
     // 注意：非法变量会被 SDK 内部拦截并返回错误，合法变量会成功保存
     auto res1 = robot.saveGlobalVars(myfailedVars1, 123);
-    printResponse("Save Global Variables Failed", res1); // 预期失败，返回错误信息
+    Codroid::CodroidControlInterface::printResponse(res1); // 预期失败，返回错误信息
     auto res2 = robot.saveGlobalVars(myfailedVars2, 123);
-    printResponse("Save Global Variables Failed", res2); // 预期失败，返回错误信息
+    Codroid::CodroidControlInterface::printResponse(res2); // 预期失败，返回错误信息
 
     auto res = robot.saveGlobalVars(myVars, 123);
     
     if (res.error_msg.empty()) {
         std::cout << "Global variables saved successfully!" << std::endl;
     }
-    printResponse("Save Global Variables", res);   
+    Codroid::CodroidControlInterface::printResponse(res);   
     // 等待一段时间再获取变量
     std::this_thread::sleep_for(std::chrono::milliseconds(500));
     // 测试获取全局变量列表接口
     std::cout << "Getting Global Variables..." << std::endl;
     auto resVars2 = robot.getGlobalVars(103);
-    printResponse("Get Global Variables", resVars2);
+    Codroid::CodroidControlInterface::printResponse(resVars2);
 
     // 删除全局变量
     std::vector<std::string> varsToDelete = {"v991", "v992", "v993", "v994"};
     auto resDel = robot.removeGlobalVars(varsToDelete, 124);
-    printResponse("Remove Global Variables", resDel);
+    Codroid::CodroidControlInterface::printResponse(resDel);
     // 等待一段时间再获取变量
     std::this_thread::sleep_for(std::chrono::milliseconds(500));
     // 测试获取全局变量列表接口
     std::cout << "Getting Global Variables..." << std::endl;
     auto resVars3 = robot.getGlobalVars(103);
-    printResponse("Get Global Variables", resVars3);
+    Codroid::CodroidControlInterface::printResponse( resVars3);
 }
 
 int main() {

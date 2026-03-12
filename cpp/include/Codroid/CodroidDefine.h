@@ -2,6 +2,8 @@
 #define CODROID_DEFINE_H
 
 #include <string>
+#include <vector>
+#include <map>
 #include <nlohmann/json.hpp>
 #include "CodroidExport.h"
 #include <stdexcept>
@@ -10,16 +12,19 @@
 namespace Codroid {
     using json = nlohmann::json;
 
-    // 通用响应结构体
+    /**
+     * @brief @~english Standard SDK Response @~chinese SDK 标准响应结构体
+     */
     struct Response {
-        int id;       // 请求ID
-        std::string ty;       // 请求类型
-        json db;              // 返回数据
-        std::string error_msg;// 错误信息
+        int id;               ///< @~english Request ID @~chinese 请求 ID
+        std::string ty;       ///< @~english Request type @~chinese 请求类型
+        json db;              ///< @~english Return data @~chinese 返回数据内容
+        std::string error_msg; ///< @~english Error message (empty if success) @~chinese 错误信息（成功则为空）
+        Response() : id(0), db(json::object()) {}
     };
 
     /**
-     * @brief Codroid SDK 专用异常类
+     * @brief @~english Codroid SDK Exception class @~chinese Codroid SDK 专用异常类
      */
     class CodroidException : public std::runtime_error {
     public:
@@ -27,29 +32,23 @@ namespace Codroid {
             : std::runtime_error(message) {}
     };
 
-    /**
-     * @brief RS485 Parity / RS485 校验位
-     */
-    enum class RS485Parity : int {
-        None = 0, ///< No parity / 无校验
-        Odd  = 1, ///< Odd parity / 奇校验
-        Even = 2  ///< Even parity / 偶校验
-    };
+    // ========================================================================
+    // 1. 通用枚举定义 (Common Enums)
+    // ========================================================================
 
-    /**
-     * @brief RS485 Stop Bits / RS485 停止位
-     */
-    enum class RS485StopBits : int {
-        One = 1, ///< 1 stop bit / 1位停止位
-        Two = 2  ///< 2 stop bits / 2位停止位
-    };
+    /** @brief @~english RS485 Parity @~chinese RS485 校验位 */
+    enum class RS485Parity : int { None = 0, Odd = 1, Even = 2 };
 
-    // --- 枚举定义 ---
+    /** @brief @~english RS485 Stop Bits @~chinese RS485 停止位 */
+    enum class RS485StopBits : int { One = 1, Two = 2 };
+
+    /** @brief @~english Coordinate System Type @~chinese 坐标系类型 */
     enum class CoorType { Tool, User };
     NLOHMANN_JSON_SERIALIZE_ENUM(CoorType, {
         {CoorType::Tool, "tool"}, {CoorType::User, "user"}
     })
 
+    /** @brief @~english Motion Interpolation Type @~chinese 运动插补类型 */
     enum class MoveType { movJ, movL, movC, movCircle };
     NLOHMANN_JSON_SERIALIZE_ENUM(MoveType, {
         {MoveType::movJ, "movJ"}, {MoveType::movL, "movL"},
@@ -57,18 +56,87 @@ namespace Codroid {
     })
 
     /**
-     * @brief 相对位姿计算参数
+     * @brief @~english MoveTo Type @~chinese 运动类型
+     */
+    enum class MoveToType : int {
+        Home = 0,           ///< @~english Home position @~chinese Home 位置
+        Safe = 1,           ///< @~english Safe position @~chinese 安全位置
+        Candle = 2,         ///< @~english Candle position @~chinese 蜡烛位
+        Packing = 3,        ///< @~english Packing position @~chinese 打包位
+        Joint = 4,          ///< @~english Joint planning to position @~chinese 关节规划到指定位置
+        Line = 5,          ///< @~english Line planning to position @~chinese 直线规划到指定位置
+        ResumePoint = 6     ///< @~english Program resume point @~chinese 程序恢复点
+    };
+    NLOHMANN_JSON_SERIALIZE_ENUM(MoveToType, {
+        {MoveToType::Home, 0}, {MoveToType::Safe, 1}, {MoveToType::Candle, 2}, 
+        {MoveToType::Packing, 3}, {MoveToType::Joint, 4}, {MoveToType::Line, 5}, {MoveToType::ResumePoint, 6}
+    })
+
+    /**
+     * @brief @~english Extend array supported data types @~chinese 扩展数组支持的数据类型
+     */
+    enum class ExtendArrayType {
+        Bool,UInt8,Int8,UInt16,
+        Int16,UInt32,Int32,Float32
+    };
+    NLOHMANN_JSON_SERIALIZE_ENUM(ExtendArrayType, {
+        {ExtendArrayType::Bool, "Bool"}, {ExtendArrayType::UInt8, "UInt8"}, {ExtendArrayType::Int8, "Int8"},
+        {ExtendArrayType::UInt16, "UInt16"}, {ExtendArrayType::Int16, "Int16"}, {ExtendArrayType::UInt32, "UInt32"},
+        {ExtendArrayType::Int32, "Int32"}, {ExtendArrayType::Float32, "Float32"}
+    })
+
+    // ========================================================================
+    // 2. 运动控制相关 (Motion Control)
+    // ========================================================================
+
+    /**
+     * @brief @~english Pose point definition @~chinese 运动位姿点定义
+     */
+    struct MovePoint {
+        std::vector<double> jp; ///< @~english Joint positions (deg) @~chinese 关节角 (单位:度)
+        std::vector<double> cp; ///< @~english Cartesian position (mm, deg) @~chinese 笛卡尔坐标 (单位:mm, 度)
+        std::vector<double> rj; ///< @~english Reference joints for IK @~chinese 逆解参考关节角
+        std::vector<double> ep; ///< @~english External axes @~chinese 附加轴位置
+
+        MovePoint() = default;
+        static MovePoint Joint(const std::vector<double>& v) { MovePoint p; p.jp = v; return p; }
+        static MovePoint Cartesian(const std::vector<double>& v) { MovePoint p; p.cp = v; return p; }
+    };
+
+    /**
+     * @brief @~english Move instruction detail @~chinese 单条运动指令详情
+     */
+    struct MoveInstruction {
+        MoveType type = MoveType::movJ;  ///< @~english Motion type @~chinese 运动类型
+        double speed = 60.0;            ///< @~english Speed (mm/s or deg/s) @~chinese 运动速度
+        double acc = 150.0;             ///< @~english Accel (mm/s^2 or deg/s^2) @~chinese 加速度
+        double blend = -1.0;            ///< @~english Transition radius (mm) @~chinese 过渡半径
+        double relativeBlend = -1.0;    ///< @~english Relative transition (%) @~chinese 相对过渡百分比
+        int circleNum = 1;              ///< @~english Circle count for movCircle @~chinese 圆周运动圈数
+        MovePoint targetPoint;          ///< @~english Target position @~chinese 目标点
+        MovePoint middlePoint;          ///< @~english Intermediate point (for movC) @~chinese 中间点
+        std::vector<double> coor;       ///< @~english User coordinate [x,y,z,a,b,c] @~chinese 用户坐标系
+        std::vector<double> tool;       ///< @~english Tool coordinate [x,y,z,a,b,c] @~chinese 工具坐标系
+    };
+
+    /** @brief @~english Jog Parameters @~chinese 点动参数结构体 */
+    struct JogParams {
+        int mode = 2;                   ///< @~english 1:Joint, 2:Line @~chinese 1:关节点动 2:直线点动
+        double speed = 0.0;             ///< @~english Range -1 to 1 @~chinese 速度范围 -1~1
+        int index = 1;                  ///< @~english Axis/Joint index @~chinese 轴/关节序号
+        int coorType = 0;               ///< @~english 0:User, 1:Tool @~chinese 0:用户系 1:工具系
+        int coorId = 1;                 ///< @~english Coordinate ID @~chinese 坐标系 ID
+    };
+
+    /**
+     * @brief @~english Relative pose calculation parameters @~chinese 相对位姿计算参数
      */
     struct RelativePoseParams {
-        std::vector<double> pos;      ///< [Required] Current position (Cartesian) / [必填] 当前末端TCP坐标 [x,y,z,a,b,c]
-        std::vector<double> offset;   ///< [Required] Desired offset in Cartesian coordinates / [必填] 偏移量 [x,y,z,a,b,c]
-        
-        // --- 以下为可选参数，使用空数组作为“未设置”的标志 ---
-        CoorType coorType = CoorType::Tool; ///< [Optional] Coordinate system type for the offset (Tool or User) / [可选] 坐标系类型
-        std::vector<double> posCoor;  ///< [Optional] Coordinate of the current position / [可选] 当前末端TCP坐标系，默认世界坐标系
-        std::vector<double> coor;     ///< [Optional] coorType is valid when set to user; offset coordinate system is the default, world coordinate system / [可选] coorType为user时有效，偏移坐标系，默认世界坐标系
-
-        // 辅助构造函数，方便快速创建最简单的请求
+        std::vector<double> pos;      ///< @~english [Required] Current position (Cartesian) @~chinese 当前末端TCP坐标 [x,y,z,a,b,c]
+        std::vector<double> offset;   ///< @~english [Required] Desired offset in Cartesian coordinates @~chinese 偏移量 [x,y,z,a,b,c]
+        CoorType coorType = CoorType::Tool; ///< @~english [Optional] Coordinate system type for the offset (Tool or User) @~chinese [可选] 坐标系类型
+        std::vector<double> posCoor;  ///< @~english [Optional] Coordinate of the current position @~chinese [可选] 当前末端TCP坐标系，默认世界坐标系
+        std::vector<double> coor;     ///< @~english [Optional] coorType is valid when set to user; offset coordinate system is the default, world coordinate system @~chinese [可选] coorType为user时有效，偏移坐标系，默认世界坐标系
         RelativePoseParams(const std::vector<double>& p, const std::vector<double>& o, CoorType type)
             : pos(p), offset(o), coorType(type) {}
             
@@ -77,132 +145,50 @@ namespace Codroid {
 
 
     /**
-     * @brief Global variable information / 全局变量信息结构
+     * @brief @~english Global variable information @~chinese 全局变量信息结构
      */
     struct Variable {
-        std::string val;  ///< Variable value (JSON string format) / 变量值 (JSON字符串格式)
-        std::string nm;   ///< Variable remark/note / 变量备注
-
-        /**
-         * @brief 构造函数
-         * @param[in] value 变量值，支持直接传入 int, double, string, json 对象等
-         * @param[in] note 变量备注，可选
-         */
+        std::string val;  ///< @~english Variable value (JSON string format) @~chinese 变量值 (JSON字符串格式)
+        std::string nm;   ///< @~english Variable remark/note @~chinese 变量备注
         template<typename T>
         Variable(const T& value, const std::string& note = "") : nm(note) {
-            if constexpr (std::is_same_v<T, std::string>) {
-                // 如果是字符串，按照示例某些情况可能需要额外转义，
-                // 但通常直接赋值或 dump 即可
-                val = value; 
-            } else {
-                // 使用 json 序列化功能将 数组、对象、数字 转为字符串
-                nlohmann::json j = value;
-                val = j.dump();
-            }
+            if constexpr (std::is_same_v<T, std::string>) {val = value; } 
+            else {nlohmann::json j = value;val = j.dump();}
         }
-        
-        // 默认构造函数
         Variable() = default;
     };
     
     /**
-     * @brief 正解参数结构体 (Forward Kinematics Params)
+     * @brief @~english Forward Kinematics Params @~chinese 正解参数结构体
      */
     struct FKParams {
-        std::vector<double> jp;      ///< [必填] 关节角 [j1...j6], 单位: deg
-        std::vector<double> coor;    ///< [可选] 用户坐标系, 不传则不处理
-        std::vector<double> tool;    ///< [可选] 工具坐标系, 不传则不处理
-        std::vector<double> ep;      ///< [可选] 附加轴位置
-
-        // 构造函数，方便快速传入必填项
+        std::vector<double> jp;      ///< @~english [Required] joint angle @~chinese [必填] 关节角 [j1...j6], 单位: deg
+        std::vector<double> coor;    ///< @~english [Optional] user coordinate system @~chinese [可选] 用户坐标系, 不传则不处理
+        std::vector<double> tool;    ///< @~english [Optional] tool coordinate system @~chinese [可选] 工具坐标系, 不传则不处理
+        std::vector<double> ep;      ///< @~english [Optional] extra axes @~chinese [可选] 附加轴位置
         explicit FKParams(const std::vector<double>& jointPos) : jp(jointPos) {}
         FKParams() = default;
     };
 
     /**
-     * @brief 逆解参数结构体 (Inverse Kinematics Params)
+     * @brief @~english Inverse Kinematics Params @~chinese 逆解参数结构体
      */
     struct IKParams {
-        std::vector<double> cp;      ///< [必填] 笛卡尔末端位置, 单位: mm, deg
-        std::vector<double> rj;      ///< [可选] 参考关节角, 默认 [20,20,20,20,20,20]
-        std::vector<double> ep;      ///< [可选] 附加轴位置
-
-        // 构造函数
+        std::vector<double> cp;      ///< @~english [Required] Cartesian position,mm, deg @~chinese [必填] 笛卡尔末端位置, 单位: mm, deg
+        std::vector<double> rj;      ///< @~english [Optional] Reference joint angle, default [20,20,20,20,20,20] @~chinese [可选] 参考关节角, 默认 [20,20,20,20,20,20]
+        std::vector<double> ep;      ///< @~english [Optional] extra axes @~chinese [可选] 附加轴位置
         explicit IKParams(const std::vector<double>& cartesianPos) : cp(cartesianPos) {}
         IKParams() = default;
     };
 
+    
     /**
-     * @brief Jog Mode / 点动模式
-     */
-    enum class JogMode : int {
-        Joint = 1, ///< Joint jog / 关节点动
-        Line  = 2  ///< Line (Cartesian) jog / 直线点动
-    };
-
-    /**
-     * @brief Jog Coordinate Type / 点动坐标系类型
-     */
-    enum class JogCoorType : int {
-        User = 0, ///< User coordinate system / 用户坐标系
-        Tool = 1  ///< Tool coordinate system / 工具坐标系
-    };
-
-    /**
-     * @brief Jog Parameters / 点动参数结构体
-     */
-    struct JogParams {
-        JogMode mode = JogMode::Line;      ///< 1: Joint, 2: Line / 1：关节点动 2：直线点动
-        double speed = 0.0;               ///< Speed range -1~1 / 速度，取值范围-1~1
-        int index = 1;                    ///< Joint 1-6 or XYZABC 1-6 / 关节序号1~6 或 空间轴序号1~6(xyzabc)
-        JogCoorType coorType = JogCoorType::User; ///< 0: User, 1: Tool / 0：用户坐标系，1：工具坐标系
-        int coorId = 1;                   ///< User coordinate ID / 用户坐标系id
-
-        JogParams() = default;
-        
-        /**
-         * @brief 快速构造函数
-         */
-        JogParams(JogMode m, double s, int idx, JogCoorType ct = JogCoorType::User, int cid = 1)
-            : mode(m), speed(s), index(idx), coorType(ct), coorId(cid) {}
-    };
-
-    // --- JSON 映射配置 (确保 int 枚举正确序列化) ---
-    NLOHMANN_JSON_SERIALIZE_ENUM(JogMode, {
-        {JogMode::Joint, 1},
-        {JogMode::Line, 2}
-    })
-
-    NLOHMANN_JSON_SERIALIZE_ENUM(JogCoorType, {
-        {JogCoorType::User, 0},
-        {JogCoorType::Tool, 1}
-    })
-
-    /**
-     * @brief MoveTo Type / 运动类型
-     */
-    enum class MoveToType : int {
-        Home = 0,           ///< Home position / Home 位置
-        Safe = 1,           ///< Safe position / 安全位置
-        Candle = 2,         ///< Candle position / 蜡烛位
-        Packing = 3,        ///< Packing position / 打包位
-        Joint = 4,          ///< Joint planning to position / 关节规划到指定位置
-        Line = 5,          ///< Line planning to position / 直线规划到指定位置
-        ResumePoint = 6     ///< Program resume point / 程序恢复点
-    };
-
-    /**
-     * @brief MoveTo Target Position / 运动目标位置
-     * 可以仅提供 cp，或仅提供 jp，或者两者都提供（由机器人端决定优先级）
+     * @brief @~english MoveTo Target Position @~chinese 运动目标位置
      */
     struct MoveToTarget {
-        std::vector<double> cp; ///< [可选] 末端位置 [x,y,z,a,b,c]
-        std::vector<double> jp; ///< [可选] 关节位置 [j1..j6]
-        // ep 字段在 SDK 内部固定处理，无需手动赋值
-
+        std::vector<double> cp; ///< @~english [Optional] End effector position [x,y,z,a,b,c] @~chinese [可选] 末端位置 [x,y,z,a,b,c]
+        std::vector<double> jp; ///@~english [Optional] Reference joint angle @~chinese [可选] 关节位置 [j1..j6]
         MoveToTarget() = default;
-
-        // 辅助方法：快速创建目标
         static MoveToTarget Joint(const std::vector<double>& j) {
             MoveToTarget t; t.jp = j; return t;
         }
@@ -212,11 +198,11 @@ namespace Codroid {
     };
 
     /**
-     * @brief MoveTo Parameters / 运动参数
+     * @brief @~english MoveTo Parameters @~chinese 运动参数
      */
     struct MoveToParams {
         MoveToType type = MoveToType::Home;
-        MoveToTarget target; ///< Optional, used only for type 4 or 5 / 可选，仅用于类型 4 或 5
+        MoveToTarget target; ///< @~english [Optional] Target position @~chinese [可选] 目标位置
 
         MoveToParams() = default;
         // 预定义位置构造 (Home, Safe 等)
@@ -225,122 +211,35 @@ namespace Codroid {
         MoveToParams(MoveToType t, const MoveToTarget& tgt) : type(t), target(tgt) {}
     };
 
-    // JSON 映射
-    NLOHMANN_JSON_SERIALIZE_ENUM(MoveToType, {
-        {MoveToType::Home, 0},
-        {MoveToType::Safe, 1},
-        {MoveToType::Candle, 2},
-        {MoveToType::Packing, 3},
-        {MoveToType::Joint, 4},
-        {MoveToType::Line, 5},
-        {MoveToType::ResumePoint, 6}
-    })
-
     /**
-     * @brief Move point / 运动点结构体
-     * 适用于 move 指令，包含更丰富的运动参数和目标定义
+     * @brief @~english Move point @~chinese 运动点结构体
      */
     struct MovePoint {
-        std::vector<double> jp; ///< jointposition / 关节角
-        std::vector<double> cp; ///< cartesian position / 笛卡尔位置
-        std::vector<double> rj; ///< reference position / 参考位置
-        std::vector<double> ep; ///< extra axes / 附加轴
+        std::vector<double> jp; ///< @~english [Optional] Joint position @~chinese [可选] 关节角
+        std::vector<double> cp; ///< @~english [Optional] Cartesian position @~chinese [可选] 笛卡尔位置
+        std::vector<double> rj; ///< @~english [Optional] Reference position @~chinese [可选] 参考位置
+        std::vector<double> ep; ///< @~english [Optional] Extra axes @~chinese [可选] 附加轴
 
         MovePoint() = default;
         static MovePoint Joint(const std::vector<double>& j) { MovePoint p; p.jp = j; return p; }
         static MovePoint Cartesian(const std::vector<double>& c) { MovePoint p; p.cp = c; return p; }
     };
 
-    /**
-     * @brief Move Instruction / 运动指令结构体
-     */
-    struct MoveInstruction {
-        MoveType type = MoveType::movJ; ///< movetype: movJ, movL, movC, movCircle / 运动类型：movJ、movL、movC、movCircle
-        double speed = 60.0;            ///< speed, unit mm/s for linear, deg/s for joint / 速度，线性运动单位mm/s，关节运动单位deg/s
-        double acc = 150.0;             ///< acceleration, unit mm/s² for linear, deg/s² for joint / 加速度，线性运动单位mm/s²，关节运动单位deg/s²
-        double blend = -1.0;            ///< blend radius for movL and movC, unit mm for linear, deg for joint; <0 means no blending / movL和movC的blend半径，线性运动单位mm，关节运动单位deg；<0表示不使用blend
-        double relativeBlend = -1.0;    ///< relative blend radius (0~1) for movL and movC; <0 means absolute blend radius / movL和movC的相对blend半径（0~1）；<0表示使用绝对blend半径
-        int circleNum = 1;              ///< circle number for movC and movCircle / movC和movCircle的圈数
-        
-        MovePoint targetPoint;          ///< target point for the movement / 运动目标点，包含关节角和笛卡尔位置等信息
-        MovePoint middlePoint;          ///< middle point for movC / movC的中间点，包含关节角和笛卡尔位置等信息
-        
-        std::vector<double> coor;       ///< optional coordinate system for the target point, default is world coordinate system / 目标点的可选坐标系，默认是世界坐标系
-        std::vector<double> tool;       ///< optional tool coordinate system for the target point / 目标点的可选工具坐标系
-    };
 
-    // 回调函数定义：参数1是主题名称(ty)，参数2是具体数据内容(db)
-    using TopicCallback = std::function<void(const std::string&, const nlohmann::json&)>;
-
-    // 机器人姿态快照结构体
-    struct RobotPostureSnapshot {
-        std::vector<double> joint;   ///< 关节角 [j1..j6] (单位: 弧度)
-        std::vector<double> cart;    ///< 笛卡尔坐标 [x,y,z,a,b,c] (单位: mm, 弧度)
-        
-        RobotPostureSnapshot() : joint(6, 0.0), cart(6, 0.0) {}
-    };
+    
+    // ========================================================================
+    // 3. 状态推送相关 (Subscription & Status)
+    // ========================================================================
 
     /**
-     * @brief IO 信息结构体
+     * @brief @~english Robot runtime status @~chinese 机器人运行状态 (15.4)
      */
-    struct IOInfo {
-        std::string type; ///< "DI", "DO", "AI", "AO"
-        int port;         ///< 端口号
-        double value;     ///< IO 的值 (查询结果)
-
-        IOInfo() : port(0), value(0.0) {}
-        IOInfo(const std::string& t, int p) : type(t), port(p), value(0.0) {}
-    };
-
-    enum class IOType { DI, DO, AI, AO };
-
-    /**
-     * @brief 寄存器键值对
-     */
-    struct RegisterInfo {
-        int address;
-        double value;
-
-        // 默认构造函数
-        RegisterInfo() : address(0), value(0.0) {}
-
-        // 带参数的构造函数（解决列表初始化匹配问题）
-        RegisterInfo(int addr, double val) : address(addr), value(val) {}
-    };
-
-    /**
-     * @brief 扩展数组支持的数据类型
-     */
-    enum class ExtendArrayType {
-        Bool,
-        UInt8,
-        Int8,
-        UInt16,
-        Int16,
-        UInt32,
-        Int32,
-        Float32
-    };
-
-    // 映射枚举到字符串，用于 JSON 序列化
-    NLOHMANN_JSON_SERIALIZE_ENUM(ExtendArrayType, {
-        {ExtendArrayType::Bool, "Bool"},
-        {ExtendArrayType::UInt8, "UInt8"},
-        {ExtendArrayType::Int8, "Int8"},
-        {ExtendArrayType::UInt16, "UInt16"},
-        {ExtendArrayType::Int16, "Int16"},
-        {ExtendArrayType::UInt32, "UInt32"},
-        {ExtendArrayType::Int32, "Int32"},
-        {ExtendArrayType::Float32, "Float32"}
-    })
-
-    // 15.4 机器人状态
     struct RobotStatus {
-        int mode;            // 0=手动; 1=自动; 2=远程
-        int state;           // 0=未使能; 1=使能中; 2=空闲; 3=点动中; 4=RunTo; 5=拖动中
-        int isMoving;        // 0: 停止, 1: 运动
-        double moveRate;        
-        double manualMoveRate;
+        int mode;            ///< @~english 0:Manual, 1:Auto, 2:Remote @~chinese 0:手动, 1:自动, 2:远程
+        int state;           ///< @~english 0:Not Enabled, 1:Enabling, 2:Idle, 3:Teaching, 4:Running, 5:Dragging @~chinese 0:未使能, 1:使能中, 2:空闲, 3:点动中, 4:RunTo, 5:拖动中
+        int isMoving;        ///< @~english 0:Stopped, 1:Moving @~chinese 0:停止, 1:运动
+        double moveRate;     ///< @~english Auto speed rate @~chinese 自动速度倍率  
+        double manualMoveRate;///< @~english Manual speed rate @~chinese 手动速度倍率
         int recoveryState;
         bool isSimulation;
         int teachingPendant;
@@ -352,35 +251,52 @@ namespace Codroid {
         int defaultToolId;
         int defaultPayloadId;
         int defaultUserCoorId;
-        std::string type;
-        std::string stateName;
-        long long timestamp;
+        std::string type;       ///< @~english Model type @~chinese 机器人型号
+        std::string stateName;  ///< @~english State description @~chinese 状态名称
+        long long timestamp;    ///< @~english Push timestamp @~chinese 推送时间戳
     };
 
-    // --- 对应协议的数据结构 ---
-
-    struct RobotStatusPush {
-        int mode;           // 0=手动; 1=自动; 2=远程
-        int state;          // 0=未使能; 1=使能中; 2=空闲; 3=点动中; 4=RunTo; 5=拖动中
-        bool isMoving;      // 是否正在运动
-        double moveRate;    // 自动倍率
-        std::string type;   // 机器人型号
-        std::string stateName;
+    /**
+     * @brief @~english Robot real-time posture @~chinese 机器人实时位姿 (15.5)
+     */
+    struct RobotPosture {
+        std::vector<double> joint; ///< @~english Joints (deg) @~chinese 关节角 (度)
+        std::vector<double> cart;  ///< @~english Cartesian [x,y,z,a,b,c] @~chinese 笛卡尔坐标 [x,y,z,a,b,c]
     };
 
-    struct RobotPosturePush {
-        std::vector<double> joint; // 关节角 (deg)
-        struct {
-            double x, y, z, a, b, c;
-        } cart; // 笛卡尔坐标
+    /**
+     * @brief @~english Project execution state @~chinese 工程执行状态 (15.2)
+     */
+    struct ProjectState {
+        std::string id;           ///< @~english Project ID @~chinese 工程 ID
+        int state;                ///< @~english 0:Idle, 2:Running, 3:Paused @~chinese 工程状态
+        bool isStep;              ///< @~english Step mode flag @~chinese 是否单步运行
+        std::map<std::string, int> scriptLines; ///< @~english ScriptID -> LineNum @~chinese 脚本ID对应行号
     };
 
-    struct ProjectStatePush {
-        std::string id;
-        int state;       // 0:空闲, 1:加载, 2:运行, 3:暂停
-        bool isStep;
-        std::map<std::string, int> scriptLines; // 脚本ID -> 行号
+    // ========================================================================
+    // 4. IO 与 寄存器 (IO & Registers)
+    // ========================================================================
+
+    /** @brief @~english IO information @~chinese IO 信息结构体 */
+    struct IOInfo {
+        std::string type;         ///< @~english DI, DO, AI, AO @~chinese IO 类型
+        int port;                 ///< @~english Port number @~chinese 端口号
+        double value;             ///< @~english IO value @~chinese IO 数值
+        IOInfo(const std::string& t, int p) : type(t), port(p), value(0.0) {}
+        IOInfo() = default;
     };
+
+    /** @brief @~english Register information @~chinese 寄存器信息结构体 */
+    struct RegisterInfo {
+        int address;              ///< @~english Register address @~chinese 寄存器地址
+        double value;             ///< @~english Register value @~chinese 寄存器数值
+        RegisterInfo(int addr, double val) : address(addr), value(val) {}
+        RegisterInfo() = default;
+    };
+
+    // 回调函数定义：参数1是主题名称(ty)，参数2是具体数据内容(db)
+    using TopicCallback = std::function<void(const std::string&, const nlohmann::json&)>;
 
 }
 

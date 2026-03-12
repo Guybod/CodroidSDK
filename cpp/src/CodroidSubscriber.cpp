@@ -63,7 +63,7 @@ void CodroidSubscriber::handleMessage(const json& j) {
 
     // 15.4 机器人状态
     if (ty == "publish/RobotStatus" && onStatus_) {
-        RobotStatusPush s;
+        RobotStatus s;
         s.mode = db.value("mode", 0);
         s.state = db.value("state", 0);
         s.isMoving = (db.value("isMoving", 0) != 0);
@@ -74,15 +74,15 @@ void CodroidSubscriber::handleMessage(const json& j) {
     }
     // 15.5 机器人位姿
     else if (ty == "publish/RobotPosture" && onPosture_) {
-        RobotPosturePush p;
+        RobotPosture p;
         p.joint = db.value("joint", std::vector<double>{});
         if (db.contains("end")) {
-            p.cart.x = db["end"].value("x", 0.0);
-            p.cart.y = db["end"].value("y", 0.0);
-            p.cart.z = db["end"].value("z", 0.0);
-            p.cart.a = db["end"].value("a", 0.0);
-            p.cart.b = db["end"].value("b", 0.0);
-            p.cart.c = db["end"].value("c", 0.0);
+            p.cart[0] = db["end"].value("x", 0.0);
+            p.cart[1] = db["end"].value("y", 0.0);
+            p.cart[2] = db["end"].value("z", 0.0);
+            p.cart[3] = db["end"].value("a", 0.0);
+            p.cart[4] = db["end"].value("b", 0.0);
+            p.cart[5] = db["end"].value("c", 0.0);
         }
         onPosture_(p);
     }
