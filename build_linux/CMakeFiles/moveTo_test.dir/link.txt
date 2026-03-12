@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/moveTo_test.dir/examples/moveTo_test.cpp.o -o moveTo_test  -Wl,-rpath,/home/ym/workspace/cpp/CodroidSDK/build_linux libCodroid.so 

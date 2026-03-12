@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/jog_test.dir/examples/jog_test.cpp.o -o jog_test  -Wl,-rpath,/home/ym/workspace/cpp/CodroidSDK/build_linux libCodroid.so 

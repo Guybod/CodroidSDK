@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/globalVal_test.dir/examples/globalVal_test.cpp.o -o globalVal_test  -Wl,-rpath,/home/ym/workspace/cpp/CodroidSDK/build_linux libCodroid.so 
