@@ -68,18 +68,7 @@ public:
      */
     static void printResponse(const Codroid::Response& resp);
 
-    // --- 2.1 运行脚本 ---
-    /** @brief @~english Run a script on the robot @~chinese 在机器人上运行脚本
-     * @~english
-     * @param script Script content.
-     * @param id Request ID.
-     * @~chinese
-     * @param script 脚本内容。
-     * @param id 请求 ID。
-     * @return @~english  Response object containing the result of the command execution.
-     *         @~chinese  包含指令执行结果的响应对象。
-     */
-    Response runScript(const std::string& script, int id = 1);
+
 
     // --- 2.2 进入远程脚本模式 ---
     /** @brief @~english Enter remote script mode on the robot @~chinese 在机器人上进入远程脚本模式
@@ -914,6 +903,19 @@ public:
 
 private:
     
+    // --- 2.1 运行脚本 ---
+    /** @brief @~english Run a script on the robot @~chinese 在机器人上运行脚本
+     * @~english
+     * @param script Script content.
+     * @param id Request ID.
+     * @~chinese
+     * @param script 脚本内容。
+     * @param id 请求 ID。
+     * @return @~english  Response object containing the result of the command execution.
+     *         @~chinese  包含指令执行结果的响应对象。
+     */
+    Response runScript(const std::string& script, int id = 1);
+
     asio::io_context io_context_;
 
     std::unique_ptr<asio::ip::tcp::socket> cmd_socket_;
