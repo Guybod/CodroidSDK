@@ -85,11 +85,6 @@ int main() {
     if (robot.connect("192.168.1.136", 9001)) {
         std::cout << "Connected to Codroid Robot!" << std::endl;
 
-        // 2. 获取当前笛卡尔位姿 (单位: mm, deg)
-        // 内部已自动同步并跳过初始零位包
-        std::vector<double> currentPos = robot.getCartesianPosition();
-        std::cout << "Current X: " << currentPos[0] << " mm" << std::endl;
-
         // 3. 关节运动
         // 目标：关节角度 [j1..j6]
         std::vector<double> home = {0.0, 0.0, 90.0, 0.0, 90.0, 0.0};
