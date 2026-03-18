@@ -27,9 +27,9 @@ classifiers = [
 dependencies = []
 
 [project.urls]
-Documentation = "https://github.com/guybod/codroid#readme"
-Issues = "https://github.com/guybod/codroid/issues"
-Source = "https://github.com/guybod/codroid"
+Documentation = "https://guybod.github.io/CodroidSDK/"
+Issues = "https://github.com/guybod/CodroidSDK/issues"
+Source = "https://github.com/guybod/CodroidSDK"
 
 [tool.hatch.version]
 path = "src/codroid/__about__.py"
