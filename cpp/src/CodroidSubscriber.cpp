@@ -11,13 +11,20 @@ CodroidSubscriber::~CodroidSubscriber() {
 }
 
 bool CodroidSubscriber::connect(const std::string& ip, int port) {
+    this->last_ip_ = ip;
+    this->last_port_ = port;
     try {
+        if (socket_ && socket_->is_open()) socket_->close();
+        
         asio::ip::tcp::resolver resolver(io_context_);
         asio::connect(*socket_, resolver.resolve(ip, std::to_string(port)));
         socket_->set_option(asio::ip::tcp::no_delay(true));
-
-        running_ = true;
-        thread_ = std::thread(&CodroidSubscriber::runLoop, this);
+        
+        // 只有在第一次连接时启动线程，后续重连不需要
+        if (!running_) {
+            running_ = true;
+            thread_ = std::thread(&CodroidSubscriber::runLoop, this);
+        }
         return true;
     } catch (std::exception& e) {
         std::cerr << "Subscriber connect error: " << e.what() << std::endl;
@@ -34,10 +41,15 @@ void CodroidSubscriber::disconnect() {
 }
 
 bool CodroidSubscriber::subscribe(const std::string& topic, int cycle) {
+    // 记录到本地列表，用于掉线后自动恢复
+    {
+        std::lock_guard<std::mutex> lock(sub_mtx_);
+        active_subscriptions_[topic] = cycle;
+    }
+    
+    // 发送 15.1 协议定义的订阅指令
     try {
-        json req;
-        req["ty"] = "publish/" + topic;
-        req["tc"] = cycle;
+        nlohmann::json req = {{"ty", "publish/" + topic}, {"tc", cycle}};
         std::string s = req.dump() + "\n";
         asio::write(*socket_, asio::buffer(s));
         return true;
@@ -46,13 +58,44 @@ bool CodroidSubscriber::subscribe(const std::string& topic, int cycle) {
 
 void CodroidSubscriber::runLoop() {
     while (running_) {
+        // --- 逻辑 A: 如果 Socket 未连接，启动重连流程 ---
+        if (!socket_ || !socket_->is_open()) {
+            std::cout << "[Subscriber] Connection lost. Retrying in 2 seconds..." << std::endl;
+            std::this_thread::sleep_for(std::chrono::seconds(2));
+            
+            if (this->connect(last_ip_, last_port_)) {
+                std::cout << "[Subscriber] Reconnected! Restoring subscriptions..." << std::endl;
+                
+                // 关键点：重连成功后，必须自动重新发送之前的订阅请求
+                // 否则机器人不会主动推送数据给新连接的 Socket
+                std::lock_guard<std::mutex> lock(sub_mtx_);
+                for (auto const& [topic, cycle] : active_subscriptions_) {
+                    this->subscribe(topic, cycle);
+                }
+            }
+            continue; // 跳过本次循环，重新进入 reading 状态
+        }
+
+        // --- 逻辑 B: 正常读取 ---
         std::string raw = receiveOneRaw();
-        if (raw.empty()) break;
+        
+        if (raw.empty()) {
+            // 如果读到空字符串，通常意味着对端关闭了连接
+            std::cerr << "[Subscriber] Remote host closed the connection." << std::endl;
+            if (socket_) {
+                asio::error_code ec;
+                socket_->close(ec); // 标记为关闭，触发下一轮循环的重连逻辑
+            }
+            continue;
+        }
 
         try {
-            json j = json::parse(raw);
+            nlohmann::json j = nlohmann::json::parse(raw);
             handleMessage(j);
-        } catch (...) {}
+        } catch (const std::exception& e) {
+            // 解析失败（数据包截断等情况），不中断线程
+            // std::cerr << "[Subscriber] JSON Parse error: " << e.what() << std::endl;
+        }
     }
 }
 

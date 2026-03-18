@@ -925,6 +925,15 @@ private:
     // 内部辅助：接收完整 JSON
     std::string receiveRaw(asio::ip::tcp::socket& socket, std::string& sticky_buffer);
 
+    // --- 新增：用于记录连接信息，实现重连 ---
+    std::string last_ip_;
+    int last_port_;
+    int last_sub_port_;
+    bool auto_reconnect_ = true; // 是否开启自动重连
+    
+    // 内部私有重连函数
+    bool reconnect();
+
     // 内部校验函数
     bool isValidVariableName(const std::string& name, std::string& outError);
 

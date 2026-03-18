@@ -48,17 +48,28 @@ CodroidControlInterface::~CodroidControlInterface() {
  */
 bool CodroidControlInterface::connect(const std::string& ip, int port) {
     try {
+        // 更新连接缓存，供重连使用
+        this->last_ip_ = ip;
+        this->last_port_ = port;
+
+        // 如果已经打开，先安全关闭
+        if (cmd_socket_->is_open()) {
+            asio::error_code ec;
+            cmd_socket_->shutdown(asio::ip::tcp::socket::shutdown_both, ec);
+            cmd_socket_->close(ec);
+        }
+
+        // 重新解析和连接
         asio::ip::tcp::resolver resolver(io_context_);
         auto endpoints = resolver.resolve(ip, std::to_string(port));
-
-        if (cmd_socket_->is_open()) cmd_socket_->close();
+        
         asio::connect(*cmd_socket_, endpoints);
         cmd_socket_->set_option(asio::ip::tcp::no_delay(true));
 
-        std::cout << "Connected to Codroid Command Channel: " << ip << ":" << port << std::endl;
+        std::cout << "[SDK] Connected to Codroid Command Channel: " << ip << ":" << port << std::endl;
         return true;
     } catch (const std::exception& e) {
-        std::cerr << "Connection failed: " << e.what() << std::endl;
+        std::cerr << "[SDK] Connection failed: " << e.what() << std::endl;
         return false;
     }
 }
@@ -89,51 +100,61 @@ void CodroidControlInterface::disconnect() {
  * @return Response / 响应结果结构体
  */
 Response CodroidControlInterface::sendCommand(const std::string& type, const nlohmann::json& data, int id) {
-    // 1. 指令通道加锁：确保在一个完整的“请求-响应”周期内，没有其他指令会干扰 Socket 或缓冲区
+    // 1. 加锁，保证指令通道的原子性
     std::lock_guard<std::mutex> lock(cmd_mtx_);
 
     Response resp;
     resp.id = id;
     resp.ty = type;
 
-    // 检查指令 Socket 是否正常连接
+    // --- 逻辑 A: 发送前的连接自检 ---
     if (!cmd_socket_ || !cmd_socket_->is_open()) {
-        resp.error_msg = "Command socket is not connected.";
-        return resp;
+        std::cout << "[SDK] Socket closed. Attempting to reconnect..." << std::endl;
+        if (!this->connect(last_ip_, last_port_)) {
+            resp.error_msg = "Command socket is disconnected and reconnection failed.";
+            return resp;
+        }
     }
 
     try {
-        // 2. 构造符合协议的请求 JSON
         nlohmann::json req_json;
         req_json["id"] = id;
         req_json["ty"] = type;
-        // 如果 data 为空，则发一个空的 JSON 对象 {}
         req_json["db"] = data.is_null() ? nlohmann::json::object() : data;
 
-        // 协议要求指令以换行符 \n 结尾
         std::string request_str = req_json.dump() + "\n"; 
-        
-        // 发送数据到指令 Socket
-        asio::write(*cmd_socket_, asio::buffer(request_str));
 
-        // 3. 调用通用的分包检测函数接收回复
-        // 关键点：这里必须传入 cmd_buffer_，绝不能和订阅线程共用 sub_buffer_
+        // --- 逻辑 B: 尝试写入并处理闪断 ---
+        asio::error_code ec;
+        asio::write(*cmd_socket_, asio::buffer(request_str), ec);
+
+        if (ec) {
+            // 如果写入失败（例如 broken pipe），尝试最后一次重连重发
+            std::cerr << "[SDK] Write failed (" << ec.message() << "). Retrying once..." << std::endl;
+            if (this->connect(last_ip_, last_port_)) {
+                asio::write(*cmd_socket_, asio::buffer(request_str));
+            } else {
+                resp.error_msg = "Network error during write: " + ec.message();
+                return resp;
+            }
+        }
+
+        // 3. 接收回复
+        // 注意：此处 cmd_buffer_ 是类成员，用于分包拼接
         std::string response_str = receiveRaw(*cmd_socket_, cmd_buffer_);
         
         if (response_str.empty()) {
-            resp.error_msg = "Command receive timeout or empty response.";
+            resp.error_msg = "Command receive timeout or empty response from robot.";
             return resp;
         }
 
         // 4. 解析响应 JSON
         nlohmann::json j_resp = nlohmann::json::parse(response_str);
 
-        // 更新返回对象中的 id 和 ty (以服务器返回为准)
         if (j_resp.contains("id")) resp.id = j_resp["id"].get<int>();
         if (j_resp.contains("ty")) resp.ty = j_resp["ty"].get<std::string>();
 
-        // 5. 检查业务层错误
-        // 根据协议，如果包含 "err" 字段且不为空，说明机器人执行指令报错
+        // 5. 检查业务层错误 ("err" 字段)
         if (j_resp.contains("err") && !j_resp["err"].is_null()) {
             if (j_resp["err"].is_string()) {
                 resp.error_msg = j_resp["err"].get<std::string>();
@@ -141,7 +162,6 @@ Response CodroidControlInterface::sendCommand(const std::string& type, const nlo
                 resp.error_msg = j_resp["err"].dump();
             }
         } else {
-            // 指令执行成功，提取返回的 db 数据
             resp.error_msg = "";
             resp.db = (j_resp.contains("db") && !j_resp["db"].is_null()) ? j_resp["db"] : nlohmann::json::object();
         }
@@ -149,11 +169,14 @@ Response CodroidControlInterface::sendCommand(const std::string& type, const nlo
     } catch (const nlohmann::json::parse_error& e) {
         resp.error_msg = std::string("JSON Parse Error: ") + e.what();
     } catch (const std::exception& e) {
+        // 如果这里捕获到异常，说明链路在读取中途彻底崩了
         resp.error_msg = std::string("Command Channel network Error: ") + e.what();
+        // 发生严重网络错误时，主动断开 socket 状态，方便下次重连
+        if (cmd_socket_) cmd_socket_->close(); 
     }
 
     return resp;
-    }   
+}   
 
     void CodroidControlInterface::printResponse(const Codroid::Response& resp) {
     std::cout << "-----------------------" << std::endl;

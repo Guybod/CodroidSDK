@@ -128,6 +128,14 @@ private:
     PostureCallback onPosture_;
     VarCallback onVar_;
     LogCallback onLog_;
+
+    // 记录已订阅的主题及其周期，用于重连后恢复
+    // key: topic_name, value: cycle_time
+    std::map<std::string, int> active_subscriptions_;
+    std::mutex sub_mtx_;
+
+    std::string last_ip_;
+    int last_port_;
 };
 
 } // namespace Codroid
