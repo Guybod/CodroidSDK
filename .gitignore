@@ -54,3 +54,35 @@ Thumbs.db
 *.tmp
 *.log
 *.bak
+
+# Python 字节码
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 虚拟环境
+.venv/
+env/
+venv/
+.hatch/
+
+# 编译输出
+dist/
+build/
+*.egg-info/
+
+# 文档输出
+site/
+
+# IDE 设置
+.vscode/
+.idea/
+
+# 单元测试与覆盖率
+.pytest_cache/
+.tox/
+.coverage
+htmlcov/
+
+# 本地环境配置文件
+.env
