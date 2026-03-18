@@ -1,0 +1,5094 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../model/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>函数参考(function) - Codroid SDK 文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#codroid-sdk" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="Codroid SDK 文档" class="md-header__button md-logo" aria-label="Codroid SDK 文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Codroid SDK 文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              函数参考(function)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Codroid SDK 文档" class="md-nav__button md-logo" aria-label="Codroid SDK 文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Codroid SDK 文档
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    函数参考(function)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    函数参考(function)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#control-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心控制接口 (Control Interface)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CodroidControlInterface
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CodroidControlInterface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.__run_script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __run_script
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.calculate_relative_pose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        calculate_relative_pose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.clear_error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clear_error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.clear_start_line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clear_start_line
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.close" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        close
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.connect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        connect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.disconnect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        disconnect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.enter_remote_script_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enter_remote_script_mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.execute_path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        execute_path
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.forward_kinematics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        forward_kinematics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_ai
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_ao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_ao
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_di" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_di
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_do
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_global_vars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_global_vars
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_io_values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_io_values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_project_var" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_project_var
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_register" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_register
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_register_values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_register_values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.inverse_kinematics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        inverse_kinematics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.jog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        jog
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.jog_heartbeat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        jog_heartbeat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.move_c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        move_c
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.move_circle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        move_circle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.move_j" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        move_j
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.move_l" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        move_l
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.move_to" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        move_to
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.move_to_heartbeat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        move_to_heartbeat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.pause_move" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pause_move
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.pause_project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pause_project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.remove_extend_array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        remove_extend_array
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.remove_global_variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        remove_global_variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.resume_move" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        resume_move
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.resume_project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        resume_project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.rs485_flush" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rs485_flush
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.rs485_init" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rs485_init
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.rs485_read" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rs485_read
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.rs485_write" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rs485_write
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.run_project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run_project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.run_project_by_index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run_project_by_index
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.run_step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run_step
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.save_global_variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        save_global_variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_ao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_ao
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_auto_move_rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_auto_move_rate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_collision_sensitivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_collision_sensitivity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_do
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_extend_array_type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_extend_array_type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_io_values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_io_values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_manual_move_rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_manual_move_rate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_payload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_payload
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_register_value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_register_value
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_start_line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_start_line
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.start_data_push" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        start_data_push
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.start_drag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        start_drag
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.start_realtime_control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        start_realtime_control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.stop_data_push" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stop_data_push
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.stop_drag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stop_drag
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.stop_jog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stop_jog
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.stop_move" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stop_move
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.stop_project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stop_project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.stop_realtime_control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stop_realtime_control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.switch_off" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        switch_off
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.switch_on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        switch_on
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.to_actual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_actual
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.to_auto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_auto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.to_manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_manual
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.to_remote" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_remote
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.to_simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motionpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        路径构建器 (MotionPath)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.MotionPath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MotionPath
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MotionPath">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#codroid.MotionPath.clear" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clear
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.MotionPath.get_commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.MotionPath.mov_c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mov_c
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.MotionPath.mov_j" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mov_j
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.MotionPath.mov_l" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mov_l
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工具函数 (Utilities)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.utils.is_valid_variable_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        is_valid_variable_name
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据模型(data model)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#control-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心控制接口 (Control Interface)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CodroidControlInterface
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CodroidControlInterface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.__run_script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __run_script
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.calculate_relative_pose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        calculate_relative_pose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.clear_error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clear_error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.clear_start_line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clear_start_line
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.close" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        close
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.connect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        connect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.disconnect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        disconnect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.enter_remote_script_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        enter_remote_script_mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.execute_path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        execute_path
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.forward_kinematics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        forward_kinematics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_ai
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_ao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_ao
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_di" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_di
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_do
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_global_vars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_global_vars
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_io_values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_io_values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_project_var" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_project_var
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_register" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_register
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_register_values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_register_values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.inverse_kinematics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        inverse_kinematics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.jog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        jog
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.jog_heartbeat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        jog_heartbeat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.move_c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        move_c
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.move_circle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        move_circle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.move_j" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        move_j
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.move_l" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        move_l
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.move_to" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        move_to
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.move_to_heartbeat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        move_to_heartbeat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.pause_move" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pause_move
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.pause_project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pause_project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.remove_extend_array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        remove_extend_array
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.remove_global_variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        remove_global_variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.resume_move" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        resume_move
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.resume_project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        resume_project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.rs485_flush" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rs485_flush
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.rs485_init" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rs485_init
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.rs485_read" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rs485_read
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.rs485_write" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rs485_write
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.run_project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run_project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.run_project_by_index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run_project_by_index
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.run_step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run_step
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.save_global_variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        save_global_variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_ao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_ao
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_auto_move_rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_auto_move_rate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_collision_sensitivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_collision_sensitivity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_do
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_extend_array_type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_extend_array_type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_io_values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_io_values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_manual_move_rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_manual_move_rate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_payload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_payload
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_register_value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_register_value
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_start_line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_start_line
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.start_data_push" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        start_data_push
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.start_drag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        start_drag
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.start_realtime_control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        start_realtime_control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.stop_data_push" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stop_data_push
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.stop_drag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stop_drag
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.stop_jog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stop_jog
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.stop_move" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stop_move
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.stop_project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stop_project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.stop_realtime_control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        stop_realtime_control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.switch_off" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        switch_off
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.switch_on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        switch_on
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.to_actual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_actual
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.to_auto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_auto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.to_manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_manual
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.to_remote" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_remote
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.CodroidControlInterface.CodroidControlInterface.to_simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motionpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        路径构建器 (MotionPath)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.MotionPath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MotionPath
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MotionPath">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#codroid.MotionPath.clear" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clear
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.MotionPath.get_commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.MotionPath.mov_c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mov_c
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.MotionPath.mov_j" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mov_j
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codroid.MotionPath.mov_l" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mov_l
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工具函数 (Utilities)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.utils.is_valid_variable_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        is_valid_variable_name
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="codroid-sdk">函数参考 (Codroid SDK)<a class="headerlink" href="#codroid-sdk" title="Permanent link">&para;</a></h1>
+<h2 id="control-interface">核心控制接口 (Control Interface)<a class="headerlink" href="#control-interface" title="Permanent link">&para;</a></h2>
+<p>这里是 SDK 的主要入口类，负责机器人连接、模式切换、IO 控制及运动指令发送。
+This is the main entry class of the SDK, responsible for robot connection, mode switching, IO control and motion command sending.</p>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="codroid.CodroidControlInterface.CodroidControlInterface" class="doc doc-heading">
+            <code>codroid.CodroidControlInterface.CodroidControlInterface</code>
+
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+
+
+
+        <p>Codroid 机器人控制接口 / Codroid Robot Control Interface.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;192.168.1.136&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">9001</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.__init__" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>初始化控制接口 / Initialize the control interface.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>host</code></b>
+              (<code><span title="str">str</span></code>, 默认：
+                  <code>&#39;192.168.1.136&#39;</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>机器人 IP 地址 / Robot IP address.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>port</code></b>
+              (<code><span title="int">int</span></code>, 默认：
+                  <code>9001</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>端口号 (默认 9001) / Port number (default 9001).</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.__run_script" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">__run_script</span><span class="p">(</span><span class="n">main_script</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.__run_script" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>2.1 运行脚本 / Run script.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>main_script</code></b>
+              (<code><span title="str">str</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>Lua 脚本代码 / Lua script code.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>vars</code></b>
+              (<code><span title="codroid.models.Dict">Dict</span>[<span title="str">str</span>, <span title="codroid.models.Any">Any</span>] | None</code>, 默认：
+                  <code>None</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>脚本共享变量 / Shared variables for the script.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.calculate_relative_pose" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">calculate_relative_pose</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">coor_type</span><span class="o">=</span><span class="n">CoordinateType</span><span class="o">.</span><span class="n">TOOL</span><span class="p">,</span> <span class="n">pos_coor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">coor</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.calculate_relative_pose" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>10.3 笛卡尔坐标偏移计算 / Calculate relative pose.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>pos</code></b>
+              (<code><span title="codroid.models.Sequence">Sequence</span>[<span title="float">float</span>]</code>)
+          –
+          <div class="doc-md-description">
+            <p>当前末端TCP坐标 / Current TCP pose.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>offset</code></b>
+              (<code><span title="codroid.models.Sequence">Sequence</span>[<span title="float">float</span>]</code>)
+          –
+          <div class="doc-md-description">
+            <p>偏移量 / Offset values.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>coor_type</code></b>
+              (<code><a class="autorefs autorefs-internal" title="codroid.models.CoordinateType" href="../model/#codroid.models.CoordinateType">CoordinateType</a></code>, 默认：
+                  <code><span title="codroid.models.CoordinateType.TOOL">TOOL</span></code>
+)
+          –
+          <div class="doc-md-description">
+            <p>坐标系类型 (USER 或 TOOL) / Coordinate type.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>pos_coor</code></b>
+              (<code><span title="codroid.models.Optional">Optional</span>[<span title="codroid.models.Sequence">Sequence</span>[<span title="float">float</span>]]</code>, 默认：
+                  <code>None</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>当前末端TCP坐标系 / Current TCP coordinate system.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>coor</code></b>
+              (<code><span title="codroid.models.Optional">Optional</span>[<span title="codroid.models.Sequence">Sequence</span>[<span title="float">float</span>]]</code>, 默认：
+                  <code>None</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>偏移坐标系 / Offset coordinate system.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.clear_error" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">clear_error</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.clear_error" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>12.11 清除错误 / Clear system errors.</p>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.clear_start_line" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">clear_start_line</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.clear_start_line" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>2.14 清除启动行设置 / Clear start line setting.</p>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.close" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">close</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.close" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>关闭连接 / Close connection.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.connect" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">connect</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.connect" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>建立 TCP 连接 / Establish TCP connection.</p>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidControlInterface</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.CodroidControlInterface.CodroidControlInterface" href="#codroid.CodroidControlInterface.CodroidControlInterface">CodroidControlInterface</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>返回自身以支持链式调用 / Returns self for chaining.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.disconnect" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">disconnect</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.disconnect" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>断开连接 (close 的别名) / Disconnect (alias for close).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.enter_remote_script_mode" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">enter_remote_script_mode</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.enter_remote_script_mode" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>2.2 进入远程脚本模式 / Enter remote script mode.</p>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.execute_path" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">execute_path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.execute_path" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>11.8 执行运动路径 / Execute a motion path.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>path</code></b>
+              (<code><a class="autorefs autorefs-internal" title="codroid.MotionPath (codroid.models.MotionPath)" href="#codroid.MotionPath">MotionPath</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>构建好的路径对象 / Pre-built MotionPath object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.forward_kinematics" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">forward_kinematics</span><span class="p">(</span><span class="n">jp</span><span class="p">,</span> <span class="n">coor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tool</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="p">[])</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.forward_kinematics" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>10.1 正解计算 (关节空间 -&gt; 笛卡尔空间) / Forward Kinematics.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>jp</code></b>
+              (<code><span title="codroid.models.Sequence">Sequence</span>[<span title="float">float</span>]</code>)
+          –
+          <div class="doc-md-description">
+            <p>6个关节角 [j1...j6], 单位: deg / 6 joint angles in deg.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>coor</code></b>
+              (<code><span title="codroid.models.Optional">Optional</span>[<span title="codroid.models.Sequence">Sequence</span>[<span title="float">float</span>]]</code>, 默认：
+                  <code>None</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>用户坐标系 [x,y,z,a,b,c]，不传则不发送 / User coordinate system.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>tool</code></b>
+              (<code><span title="codroid.models.Optional">Optional</span>[<span title="codroid.models.Sequence">Sequence</span>[<span title="float">float</span>]]</code>, 默认：
+                  <code>None</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>工具坐标系 [x,y,z,a,b,c]，不传则不发送 / Tool coordinate system.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>ep</code></b>
+              (<code><span title="codroid.models.Sequence">Sequence</span>[<span title="float">float</span>]</code>, 默认：
+                  <code>[]</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>附加轴位置 / Additional axis positions.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.get_ai" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_ai</span><span class="p">(</span><span class="n">port</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_ai" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>获取模拟输入 (AI) 值 / Get Analog Input value.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>port</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>端口号 (0~3).</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>float</code></b> (              <code><span title="float">float</span></code>
+)          –
+          <div class="doc-md-description">
+            <p>模拟量值 / Analog value (double).</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.get_ao" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_ao</span><span class="p">(</span><span class="n">port</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_ao" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>获取模拟输出 (AO) 值 / Get Analog Output value.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>port</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>端口号 (0~3).</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>float</code></b> (              <code><span title="float">float</span></code>
+)          –
+          <div class="doc-md-description">
+            <p>模拟量值 / Analog value (double).</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.get_di" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_di</span><span class="p">(</span><span class="n">port</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_di" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>获取数字输入 (DI) 值 / Get Digital Input value.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>port</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>端口号 (0~15).</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>int</code></b> (              <code><span title="int">int</span></code>
+)          –
+          <div class="doc-md-description">
+            <p>0 或 1 / 0 or 1.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.get_do" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_do</span><span class="p">(</span><span class="n">port</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_do" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>获取数字输出 (DO) 值 / Get Digital Output value.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>port</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>端口号 (0~15).</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>int</code></b> (              <code><span title="int">int</span></code>
+)          –
+          <div class="doc-md-description">
+            <p>0 或 1 / 0 or 1.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.get_global_vars" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_global_vars</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_global_vars" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>3.2 获取全局变量 / Get global variables.</p>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b>          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.get_io_values" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_io_values</span><span class="p">(</span><span class="n">io_requests</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_io_values" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>13.1 获取多个 IO 的当前值 / Get multiple IO values.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>io_requests</code></b>
+              (<code><span title="codroid.models.List">List</span>[<span title="codroid.models.Dict">Dict</span>[<span title="str">str</span>, <span title="codroid.models.Any">Any</span>]]</code>)
+          –
+          <div class="doc-md-description">
+            <p>包含 type 和 port 的列表，如 [{"type": "DI", "port": 0}]</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.get_project_var" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_project_var</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_project_var" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>4.1 获取当前所有工程变量值(仅在工程运行中有效) / Get the values of all current project variables (only valid when the project is running)</p>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b>          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.get_register" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_register</span><span class="p">(</span><span class="n">address</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_register" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>快捷方法：获取单个寄存器值 / Get a single register value.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>address</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>寄存器地址 / Register address.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>Any</code></b> (              <code><span title="codroid.models.Any">Any</span></code>
+)          –
+          <div class="doc-md-description">
+            <p>寄存器的值 / The value of the register.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.get_register_values" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_register_values</span><span class="p">(</span><span class="n">addresses</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.get_register_values" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>14.1 获取多个寄存器值 / Get multiple register values.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>addresses</code></b>
+              (<code><span title="codroid.models.List">List</span>[<span title="int">int</span>]</code>)
+          –
+          <div class="doc-md-description">
+            <p>寄存器地址列表 / List of register addresses.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.inverse_kinematics" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">inverse_kinematics</span><span class="p">(</span><span class="n">cp</span><span class="p">,</span> <span class="n">rj</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ep</span><span class="o">=</span><span class="p">[])</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.inverse_kinematics" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>10.2 逆解计算 (笛卡尔空间 -&gt; 关节空间) / Inverse Kinematics.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>cp</code></b>
+              (<code><span title="codroid.models.Sequence">Sequence</span>[<span title="float">float</span>]</code>)
+          –
+          <div class="doc-md-description">
+            <p>末端位置 [x,y,z,a,b,c] / TCP pose.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>rj</code></b>
+              (<code><span title="codroid.models.Optional">Optional</span>[<span title="codroid.models.Sequence">Sequence</span>[<span title="float">float</span>]]</code>, 默认：
+                  <code>None</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>参考关节角，默认 [20,20,20,20,20,20] / Reference joint angles.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>ep</code></b>
+              (<code><span title="codroid.models.Sequence">Sequence</span>[<span title="float">float</span>]</code>, 默认：
+                  <code>[]</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>附加轴位置 / Additional axis positions.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.jog" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">jog</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">coor_type</span><span class="o">=</span><span class="n">JogCoorType</span><span class="o">.</span><span class="n">USER</span><span class="p">,</span> <span class="n">coor_id</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.jog" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>11.1 启动机器人点动 / Start robot jogging.
+注意：需要每 500ms 调用一次 jog_heartbeat() 维持运动。</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>mode</code></b>
+              (<code><a class="autorefs autorefs-internal" title="codroid.models.JogMode" href="../model/#codroid.models.JogMode">JogMode</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>点动模式 (JOINT/LINEAR).</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>index</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>关节序号(1-6) 或 直线轴序号(1-6对应xyzabc).</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>speed</code></b>
+              (<code><span title="float">float</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>速度 (-1.0 ~ 1.0).</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>coor_type</code></b>
+              (<code><span title="codroid.models.JogCoorType">JogCoorType</span></code>, 默认：
+                  <code><span title="codroid.models.JogCoorType.USER">USER</span></code>
+)
+          –
+          <div class="doc-md-description">
+            <p>坐标系类型 (USER/TOOL).</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>coor_id</code></b>
+              (<code><span title="int">int</span></code>, 默认：
+                  <code>1</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>用户坐标系 ID.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.jog_heartbeat" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">jog_heartbeat</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.jog_heartbeat" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>11.3 点动心跳 / Jog heartbeat.
+需在点动期间每隔 0.5s 发送一次。</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.move_c" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">move_c</span><span class="p">(</span><span class="n">target_cp</span><span class="p">,</span> <span class="n">middle_cp</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="n">blend</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">coor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tool</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.move_c" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>圆弧运动 (movC)。
+注意：必须传入笛卡尔坐标点 (cp)。</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.move_circle" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">move_circle</span><span class="p">(</span><span class="n">target_cp</span><span class="p">,</span> <span class="n">middle_cp</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="n">circle_num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">coor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tool</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.move_circle" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>圆周运动 (movCircle)。</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.move_j" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">move_j</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="n">blend</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">coor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tool</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.move_j" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>关节运动 (movJ)。</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.move_l" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">move_l</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="n">blend</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">coor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tool</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.move_l" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>直线运动 (movL)。</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.move_to" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">move_to</span><span class="p">(</span><span class="n">move_type</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.move_to" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>11.4 运动到指定位置 / Move to specified position.
+注意：启动后需每隔 0.5s 调用 move_to_heartbeat() 维持运动。</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>move_type</code></b>
+              (<code><a class="autorefs autorefs-internal" title="codroid.models.MoveToType" href="../model/#codroid.models.MoveToType">MoveToType</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>预设位置类型或规划类型.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>target</code></b>
+              (<code><span title="codroid.models.Optional">Optional</span>[<a class="autorefs autorefs-internal" title="codroid.models.MoveTarget
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.MoveTarget">MoveTarget</a>]</code>, 默认：
+                  <code>None</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>目标位置 (仅在类型为 JOINT 或 LINEAR 时需要).</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.move_to_heartbeat" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">move_to_heartbeat</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.move_to_heartbeat" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>11.5 moveTo 心跳 / MoveTo heartbeat.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.pause_move" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">pause_move</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.pause_move" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>11.9 暂停运动 / pause move</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.pause_project" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">pause_project</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.pause_project" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>2.6 暂停工程 / Pause project.</p>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.remove_extend_array" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">remove_extend_array</span><span class="p">(</span><span class="n">index</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.remove_extend_array" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>14.4 删除扩展数组索引 (重置数据) / Remove extended array index.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>index</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>数组索引 (0-999) / Array index (0-999).</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.remove_global_variables" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">remove_global_variables</span><span class="p">(</span><span class="n">names</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.remove_global_variables" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>3.4 删除全局变量 / Remove global variables.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>names</code></b>
+              (<code><span title="codroid.models.List">List</span>[<span title="str">str</span>]</code>)
+          –
+          <div class="doc-md-description">
+            <p>要删除的变量名列表 / List of variable names to remove.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.resume_move" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">resume_move</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.resume_move" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>11.10 恢复运动 / resume move</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.resume_project" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">resume_project</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.resume_project" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>2.7 恢复运行 / Resume project.</p>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.rs485_flush" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">rs485_flush</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.rs485_flush" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>5.2 清空 485 读取缓存 / Flush RS485 read buffer.</p>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.rs485_init" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">rs485_init</span><span class="p">(</span><span class="n">baudrate</span><span class="p">,</span> <span class="n">stop_bit</span><span class="o">=</span><span class="n">RS485StopBits</span><span class="o">.</span><span class="n">ONE</span><span class="p">,</span> <span class="n">parity</span><span class="o">=</span><span class="n">RS485Parity</span><span class="o">.</span><span class="n">NONE</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.rs485_init" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>5.1 初始化末端 485 / Initialize RS485.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>baudrate</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>波特率 / Baud rate.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>stop_bit</code></b>
+              (<code><a class="autorefs autorefs-internal" title="codroid.models.RS485StopBits" href="../model/#codroid.models.RS485StopBits">RS485StopBits</a></code>, 默认：
+                  <code><span title="codroid.models.RS485StopBits.ONE">ONE</span></code>
+)
+          –
+          <div class="doc-md-description">
+            <p>停止位 (1或2) / Stop bits (1 or 2).</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>parity</code></b>
+              (<code><a class="autorefs autorefs-internal" title="codroid.models.RS485Parity" href="../model/#codroid.models.RS485Parity">RS485Parity</a></code>, 默认：
+                  <code><span title="codroid.models.RS485Parity.NONE">NONE</span></code>
+)
+          –
+          <div class="doc-md-description">
+            <p>校验位 / Parity mode.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.rs485_read" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">rs485_read</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.rs485_read" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>5.3 读取 485 数据 / Read RS485 data.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>length</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>读取字节数 (max 128) / Bytes to read (max 128).</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>timeout</code></b>
+              (<code><span title="int">int</span></code>, 默认：
+                  <code>3000</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>超时时间 ms (max 3000) / Timeout in ms (max 3000).</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象，db 字段为字节数组 / Response object, 'db' field is a list of bytes.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.rs485_write" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">rs485_write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.rs485_write" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>5.4 发送 485 数据 / Write RS485 data.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>data</code></b>
+              (<code><span title="codroid.models.Union">Union</span>[<span title="codroid.models.List">List</span>[<span title="int">int</span>], <span title="bytes">bytes</span>]</code>)
+          –
+          <div class="doc-md-description">
+            <p>要发送的数据 / Data to send.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.run_project" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">run_project</span><span class="p">(</span><span class="n">project_id</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.run_project" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>2.3 运行指定工程 / Run specified project.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>project_id</code></b>
+              (<code><span title="str">str</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>工程唯一标识 ID / Unique project ID.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.run_project_by_index" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">run_project_by_index</span><span class="p">(</span><span class="n">index</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.run_project_by_index" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>2.4 通过索引号运行工程 / Run project by index.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>index</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>工程映射索引号 / Project mapping index.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.run_step" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">run_step</span><span class="p">(</span><span class="n">projectID</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.run_step" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>2.5 单步运行 / run project with step.</p>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.save_global_variables" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">save_global_variables</span><span class="p">(</span><span class="n">variables</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.save_global_variables" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>3.3 保存全局变量 / Save global variables.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>variables</code></b>
+              (<code><span title="codroid.models.Dict">Dict</span>[<span title="str">str</span>, <a class="autorefs autorefs-internal" title="codroid.models.GlobalVariable
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.GlobalVariable">GlobalVariable</a>]</code>)
+          –
+          <div class="doc-md-description">
+            <p>变量名与变量对象的映射 / Map of variable names to GlobalVariable objects.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.set_ao" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">set_ao</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_ao" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>设置模拟输出 (AO) 值 / Set Analog Output value.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>port</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>端口号 (0~3).</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>value</code></b>
+              (<code><span title="float">float</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>模拟输出值.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.set_auto_move_rate" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">set_auto_move_rate</span><span class="p">(</span><span class="n">rate</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_auto_move_rate" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>11.7 设置自动运动倍率 / Set auto move rate.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>rate</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>速度百分比 / magnification range (1 ~ 100).</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.set_collision_sensitivity" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">set_collision_sensitivity</span><span class="p">(</span><span class="n">sensitivity</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_collision_sensitivity" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>19.1 设置碰撞检测灵敏度 / Set collision detection sensitivity.
+仅 2.3.2.10 以上版本可用 / Only available in version 2.3.2.10+.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>sensitivity</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>灵敏度 (0-100)，数值越大越灵敏 / Sensitivity value (0-100).</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.set_do" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">set_do</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_do" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>设置数字输出 (DO) 值 / Set Digital Output value.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>port</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>端口号 (0~15).</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>value</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>0 或 1.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.set_extend_array_type" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">set_extend_array_type</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">data_type</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_extend_array_type" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>14.3 设置扩展数组数据类型 / Set extended array data type.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>index</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>数组索引 (0-999) / Array index (0-999).</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>data_type</code></b>
+              (<code><span title="codroid.models.ExtendArrayType">ExtendArrayType</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>数据类型枚举 / Data type enum.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.set_io_values" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">set_io_values</span><span class="p">(</span><span class="n">io_list</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_io_values" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>批量设置 IO 值 / Bulk set IO values.
+注：由于协议 13.2 是单点设置，此处通过循环调用实现。</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>io_list</code></b>
+              (<code><span title="codroid.models.List">List</span>[<span title="codroid.models.Dict">Dict</span>[<span title="str">str</span>, <span title="codroid.models.Any">Any</span>]]</code>)
+          –
+          <div class="doc-md-description">
+            <p>包含 type, port, value 的字典列表.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.set_manual_move_rate" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">set_manual_move_rate</span><span class="p">(</span><span class="n">rate</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_manual_move_rate" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>11.6 设置手动运动倍率 / Set manual move rate.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>rate</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>速度百分比 / magnification range (1 ~ 100).</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.set_payload" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">set_payload</span><span class="p">(</span><span class="n">payload_id</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_payload" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>19.2 设置负载 / Set robot payload.
+仅 2.3.2.10 以上版本可用 / Only available in version 2.3.2.10+.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>payload_id</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>负载 ID (0-15) / Payload ID (0-15).</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.set_register_value" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">set_register_value</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_register_value" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>14.2 写入寄存器值 / Set a single register value.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>address</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>寄存器地址 / Register address.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>value</code></b>
+              (<code><span title="codroid.models.Any">Any</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>要写入的值 / Value to write.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.set_start_line" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">set_start_line</span><span class="p">(</span><span class="n">line</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.set_start_line" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>2.13 设置启动行 / Set start line.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>line</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>主程序开始执行的行号 / Starting line number.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.start_data_push" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">start_data_push</span><span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high_precision</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">CRIMask</span><span class="o">.</span><span class="n">TIMESTAMP</span> <span class="o">|</span> <span class="n">CRIMask</span><span class="o">.</span><span class="n">STATUS_1</span> <span class="o">|</span> <span class="n">CRIMask</span><span class="o">.</span><span class="n">JOINT_POS</span> <span class="o">|</span> <span class="n">CRIMask</span><span class="o">.</span><span class="n">CARTESIAN_POS</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.start_data_push" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>17.2/17.4 开启数据流推送 / Start CRI data push.
+支持自动识别版本切换参数格式。</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>ip</code></b>
+              (<code><span title="str">str</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>接收推送的本地 IP / Local IP to receive data.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>port</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>接收端口 (1000-65534) / Port (1000-65534).</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>duration</code></b>
+              (<code><span title="int">int</span></code>, 默认：
+                  <code>1</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>推送周期 (ms) / Push interval in ms.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>high_precision</code></b>
+              (<code><span title="bool">bool</span></code>, 默认：
+                  <code>False</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>是否使用双精度浮点数 (8字节) / Use Float64 (8 bytes).</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>mask</code></b>
+              (<code><a class="autorefs autorefs-internal" title="codroid.models.CRIMask" href="../model/#codroid.models.CRIMask">CRIMask</a></code>, 默认：
+                  <code><span title="codroid.models.CRIMask.TIMESTAMP">TIMESTAMP</span> | <span title="codroid.models.CRIMask.STATUS_1">STATUS_1</span> | <span title="codroid.models.CRIMask.JOINT_POS">JOINT_POS</span> | <span title="codroid.models.CRIMask.CARTESIAN_POS">CARTESIAN_POS</span></code>
+)
+          –
+          <div class="doc-md-description">
+            <p>数据推送掩码 / Data push mask.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.start_drag" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">start_drag</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.start_drag" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>12.9 进入拖拽模式 / Enable drag-and-teach mode.
+注意：只可在远程模式和手动模式下使用 / Note: Only available in remote or manual mode.</p>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.start_realtime_control" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">start_realtime_control</span><span class="p">(</span><span class="n">filter_type</span><span class="o">=</span><span class="n">CRIFilterType</span><span class="o">.</span><span class="n">NONE</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">start_buffer</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.start_realtime_control" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>17.6 开启实时控制模式 / Start real-time control mode.</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>filter_type</code></b>
+              (<code><span title="codroid.models.CRIFilterType">CRIFilterType</span></code>, 默认：
+                  <code><span title="codroid.models.CRIFilterType.NONE">NONE</span></code>
+)
+          –
+          <div class="doc-md-description">
+            <p>滤波类型 / Filter type.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>duration</code></b>
+              (<code><span title="int">int</span></code>, 默认：
+                  <code>1</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>指令间隔 (1-16ms) / Command interval.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>start_buffer</code></b>
+              (<code><span title="int">int</span></code>, 默认：
+                  <code>3</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>启动缓冲点数 (1-100) / Start buffer points.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.stop_data_push" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">stop_data_push</span><span class="p">(</span><span class="n">ip</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.stop_data_push" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>17.3/17.5 停止数据流推送 / Stop CRI data push.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.stop_drag" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">stop_drag</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.stop_drag" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>12.10 退出拖拽模式 / Disable drag-and-teach mode.</p>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.stop_jog" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">stop_jog</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.stop_jog" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>11.2 停止点动 / Stop robot jogging.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.stop_move" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">stop_move</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.stop_move" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>11.11 停止运动 / stop move</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.stop_project" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">stop_project</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.stop_project" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>2.8 停止运行 / Stop project.</p>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.stop_realtime_control" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">stop_realtime_control</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.stop_realtime_control" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>17.7 关闭实时控制模式 / Stop real-time control mode.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.switch_off" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">switch_off</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.switch_off" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>12.2 下使能 / Disable the robot.</p>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.switch_on" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">switch_on</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.switch_on" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>12.1 上使能 / Enable the robot.</p>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.to_actual" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">to_actual</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.to_actual" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>12.8 进入实机模式 / Switch to actual mode.</p>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.to_auto" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">to_auto</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.to_auto" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>12.4 进入自动模式 / Switch to auto mode.</p>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.to_manual" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">to_manual</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.to_manual" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>12.3 进入手动模式 / Switch to manual mode.</p>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.to_remote" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">to_remote</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.to_remote" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>12.5 进入远程模式 / Switch to remote mode.</p>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.CodroidControlInterface.CodroidControlInterface.to_simulation" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">to_simulation</span><span class="p">()</span></code>
+
+<a href="#codroid.CodroidControlInterface.CodroidControlInterface.to_simulation" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>12.7 进入仿真模式 / Switch to simulation mode.</p>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>CodroidResponse</code></b> (              <code><a class="autorefs autorefs-internal" title="codroid.models.CodroidResponse
+
+
+  
+      dataclass
+  " href="../model/#codroid.models.CodroidResponse">CodroidResponse</a></code>
+)          –
+          <div class="doc-md-description">
+            <p>响应对象 / Response object.</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+<h2 id="motionpath">路径构建器 (MotionPath)<a class="headerlink" href="#motionpath" title="Permanent link">&para;</a></h2>
+<p>用于构建复杂的连续运动路径，支持链式调用。
+Used to construct complex continuous motion paths and supports chained calls.</p>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="codroid.MotionPath" class="doc doc-heading">
+            <code>codroid.MotionPath</code>
+
+
+<a href="#codroid.MotionPath" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+
+
+
+        <p>运动路径构建器 / Motion Path Builder.
+用于组合多个运动指令（movJ, movL, movC等）并一次性发送。</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.MotionPath.clear" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">clear</span><span class="p">()</span></code>
+
+<a href="#codroid.MotionPath.clear" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>清空所有路径点 / Clear all points.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.MotionPath.get_commands" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_commands</span><span class="p">()</span></code>
+
+<a href="#codroid.MotionPath.get_commands" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>获取构建好的指令列表 / Get the built command list.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.MotionPath.mov_c" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">mov_c</span><span class="p">(</span><span class="n">target_cp</span><span class="p">,</span> <span class="n">middle_cp</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="n">blend</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span></code>
+
+<a href="#codroid.MotionPath.mov_c" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>添加圆弧运动 / Add circular arc motion.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.MotionPath.mov_j" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">mov_j</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="n">blend</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span></code>
+
+<a href="#codroid.MotionPath.mov_j" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>添加关节运动 / Add joint motion.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.MotionPath.mov_l" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">mov_l</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="n">blend</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span></code>
+
+<a href="#codroid.MotionPath.mov_l" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>添加直线运动 / Add linear motion.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+<h2 id="utilities">工具函数 (Utilities)<a class="headerlink" href="#utilities" title="Permanent link">&para;</a></h2>
+<p>提供变量名校验等辅助功能。</p>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="codroid.utils.is_valid_variable_name" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">codroid</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">is_valid_variable_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></code>
+
+<a href="#codroid.utils.is_valid_variable_name" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+
+        <p>检查变量名是否符合 Codroid 机器人 Lua 语法及系统保留字规则。</p>
+
+
+<p><span class="doc-section-title">参数：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>name</code></b>
+              (<code><span title="str">str</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>变量名字符串</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">返回：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+<b><code>bool</code></b> (              <code><span title="bool">bool</span></code>
+)          –
+          <div class="doc-md-description">
+            <p>合法返回 True，否则返回 False</p>
+          </div>
+        </li>
+    </ul>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["toc.follow", "navigation.top"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

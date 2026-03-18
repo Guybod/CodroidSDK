@@ -1,0 +1,2082 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../api/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>数据模型(data model) - Codroid SDK 文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#models-enums" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="Codroid SDK 文档" class="md-header__button md-logo" aria-label="Codroid SDK 文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Codroid SDK 文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              数据模型(data model)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Codroid SDK 文档" class="md-nav__button md-logo" aria-label="Codroid SDK 文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Codroid SDK 文档
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    函数参考(function)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据模型(data model)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据模型(data model)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-base-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 基础响应模型 (Base Models)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.CodroidResponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CodroidResponse
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CodroidResponse">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#codroid.models.CodroidResponse.is_success" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        is_success
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-motion-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 运动控制模型 (Motion Models)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 运动控制模型 (Motion Models)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-movepoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 运动点定义 (MovePoint)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.MovePoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MovePoint
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MovePoint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#codroid.models.MovePoint.to_dict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_dict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-motiontype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 运动类型枚举 (MotionType)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.MotionType" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MotionType
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MotionType">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#23-moveto-movetarget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 MoveTo 目标 (MoveTarget)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.MoveTarget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MoveTarget
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MoveTarget">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 运动模式枚举
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.JogMode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JogMode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.MoveToType" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MoveToType
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-config-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 硬件与变量配置 (Config Models)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 硬件与变量配置 (Config Models)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-globalvariable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 全局变量 (GlobalVariable)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.GlobalVariable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GlobalVariable
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GlobalVariable">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#codroid.models.GlobalVariable.to_robot_format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_robot_format
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-coordinatetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 坐标系类型 (CoordinateType)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.CoordinateType" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CoordinateType
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CoordinateType">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#33-rs485" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 RS485 配置枚举
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.RS485BaudRate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RS485BaudRate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.RS485StopBits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RS485StopBits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.RS485Parity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RS485Parity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-cri-cri-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. CRI 实时数据结构 (CRI Models)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. CRI 实时数据结构 (CRI Models)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-cridata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 实时数据汇总 (CRIData)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.CRIData" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CRIData
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CRIData">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#42-cristatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 详细系统状态 (CRIStatus)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.CRIStatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CRIStatus
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CRIStatus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#43-crimask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 推送掩码 (CRIMask)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.CRIMask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CRIMask
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-base-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 基础响应模型 (Base Models)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.CodroidResponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CodroidResponse
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CodroidResponse">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#codroid.models.CodroidResponse.is_success" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        is_success
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-motion-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 运动控制模型 (Motion Models)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 运动控制模型 (Motion Models)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-movepoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 运动点定义 (MovePoint)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.MovePoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MovePoint
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MovePoint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#codroid.models.MovePoint.to_dict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_dict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-motiontype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 运动类型枚举 (MotionType)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.MotionType" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MotionType
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MotionType">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#23-moveto-movetarget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 MoveTo 目标 (MoveTarget)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.MoveTarget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MoveTarget
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MoveTarget">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 运动模式枚举
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.JogMode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JogMode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.MoveToType" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MoveToType
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-config-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 硬件与变量配置 (Config Models)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 硬件与变量配置 (Config Models)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-globalvariable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 全局变量 (GlobalVariable)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.GlobalVariable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GlobalVariable
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GlobalVariable">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#codroid.models.GlobalVariable.to_robot_format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_robot_format
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-coordinatetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 坐标系类型 (CoordinateType)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.CoordinateType" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CoordinateType
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CoordinateType">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#33-rs485" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 RS485 配置枚举
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.RS485BaudRate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RS485BaudRate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.RS485StopBits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RS485StopBits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.RS485Parity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RS485Parity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-cri-cri-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. CRI 实时数据结构 (CRI Models)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. CRI 实时数据结构 (CRI Models)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-cridata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 实时数据汇总 (CRIData)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.CRIData" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CRIData
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CRIData">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#42-cristatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 详细系统状态 (CRIStatus)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.CRIStatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CRIStatus
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CRIStatus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#43-crimask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 推送掩码 (CRIMask)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codroid.models.CRIMask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CRIMask
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="models-enums">数据模型与枚举 (Models &amp; Enums)<a class="headerlink" href="#models-enums" title="Permanent link">&para;</a></h1>
+<p>本页列出了 Codroid SDK 中使用的所有标准化数据结构和枚举类型。</p>
+<hr />
+<h2 id="1-base-models">1. 基础响应模型 (Base Models)<a class="headerlink" href="#1-base-models" title="Permanent link">&para;</a></h2>
+<p>所有的 API 请求都会返回 <code>CodroidResponse</code> 对象。</p>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="codroid.models.CodroidResponse" class="doc doc-heading">
+            <code>codroid.models.CodroidResponse</code>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#codroid.models.CodroidResponse" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+
+
+
+        <p>SDK 通用响应对象 / Universal SDK Response Object.</p>
+
+
+<p><span class="doc-section-title">属性：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><span title="codroid.models.CodroidResponse.id">id</span></code></b>
+              (<code><span title="typing.Union">Union</span>[<span title="int">int</span>, <span title="str">str</span>]</code>)
+          –
+          <div class="doc-md-description">
+            <p>请求的唯一标识 ID / Unique request ID.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="codroid.models.CodroidResponse.ty">ty</span></code></b>
+              (<code><span title="str">str</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>接口类型名称 / Interface type name.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="codroid.models.CodroidResponse.db">db</span></code></b>
+              (<code><span title="typing.Optional">Optional</span>[<span title="typing.Any">Any</span>]</code>)
+          –
+          <div class="doc-md-description">
+            <p>接口返回的具体数据内容 / Data returned by the interface.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="codroid.models.CodroidResponse.err">err</span></code></b>
+              (<code><span title="typing.Optional">Optional</span>[<span title="typing.Any">Any</span>]</code>)
+          –
+          <div class="doc-md-description">
+            <p>错误信息。若为 None 则表示操作成功 / Error message, None if successful.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="codroid.models.CodroidResponse.is_success" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">is_success</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+<a href="#codroid.models.CodroidResponse.is_success" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>判断请求是否成功 / Check if the request was successful.</p>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+<h2 id="2-motion-models">2. 运动控制模型 (Motion Models)<a class="headerlink" href="#2-motion-models" title="Permanent link">&para;</a></h2>
+<p>用于配置机器人运动路径、点位和运动模式。</p>
+<h3 id="21-movepoint">2.1 运动点定义 (MovePoint)<a class="headerlink" href="#21-movepoint" title="Permanent link">&para;</a></h3>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="codroid.models.MovePoint" class="doc doc-heading">
+            <code>codroid.models.MovePoint</code>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#codroid.models.MovePoint" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+
+
+
+        <p>通用运动点位定义 / General Motion Point Definition.</p>
+
+
+<p><span class="doc-section-title">属性：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><span title="codroid.models.MovePoint.jp">jp</span></code></b>
+              (<code><span title="typing.Optional">Optional</span>[<span title="typing.Sequence">Sequence</span>[<span title="float">float</span>]]</code>)
+          –
+          <div class="doc-md-description">
+            <p>关节角列表 [j1...j6] / Joint angles.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="codroid.models.MovePoint.cp">cp</span></code></b>
+              (<code><span title="typing.Optional">Optional</span>[<span title="typing.Sequence">Sequence</span>[<span title="float">float</span>]]</code>)
+          –
+          <div class="doc-md-description">
+            <p>笛卡尔坐标 [x,y,z,a,b,c] / Cartesian pose.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="codroid.models.MovePoint.rj">rj</span></code></b>
+              (<code><span title="typing.Optional">Optional</span>[<span title="typing.Sequence">Sequence</span>[<span title="float">float</span>]]</code>)
+          –
+          <div class="doc-md-description">
+            <p>逆解参考关节角 / Reference joint angles for IK.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="codroid.models.MovePoint.ep">ep</span></code></b>
+              (<code><span title="typing.Optional">Optional</span>[<span title="typing.Sequence">Sequence</span>[<span title="float">float</span>]]</code>)
+          –
+          <div class="doc-md-description">
+            <p>外部轴位置 / External axis positions.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.models.MovePoint.to_dict" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">to_dict</span><span class="p">()</span></code>
+
+<a href="#codroid.models.MovePoint.to_dict" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>过滤空字段，防止后端崩溃 / Filter None to prevent server crash.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div><h3 id="22-motiontype">2.2 运动类型枚举 (MotionType)<a class="headerlink" href="#22-motiontype" title="Permanent link">&para;</a></h3>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="codroid.models.MotionType" class="doc doc-heading">
+            <code>codroid.models.MotionType</code>
+
+
+<a href="#codroid.models.MotionType" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="str">str</span></code>, <code><span title="enum.Enum">Enum</span></code></p>
+
+
+
+        <p>高级运动指令类型 / Advanced Motion Type.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><h3 id="23-moveto-movetarget">2.3 MoveTo 目标 (MoveTarget)<a class="headerlink" href="#23-moveto-movetarget" title="Permanent link">&para;</a></h3>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="codroid.models.MoveTarget" class="doc doc-heading">
+            <code>codroid.models.MoveTarget</code>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#codroid.models.MoveTarget" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+
+
+
+        <p>MoveTo 专用目标结构 / MoveTo Target Structure.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><h3 id="24">2.4 运动模式枚举<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="codroid.models.JogMode" class="doc doc-heading">
+            <code>codroid.models.JogMode</code>
+
+
+<a href="#codroid.models.JogMode" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="enum.IntEnum">IntEnum</span></code></p>
+
+
+
+        <p>点动模式 / Jog Mode.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="codroid.models.MoveToType" class="doc doc-heading">
+            <code>codroid.models.MoveToType</code>
+
+
+<a href="#codroid.models.MoveToType" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="enum.IntEnum">IntEnum</span></code></p>
+
+
+
+        <p>MoveTo 预设运动类型 / MoveTo Type.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+<h2 id="3-config-models">3. 硬件与变量配置 (Config Models)<a class="headerlink" href="#3-config-models" title="Permanent link">&para;</a></h2>
+<h3 id="31-globalvariable">3.1 全局变量 (GlobalVariable)<a class="headerlink" href="#31-globalvariable" title="Permanent link">&para;</a></h3>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="codroid.models.GlobalVariable" class="doc doc-heading">
+            <code>codroid.models.GlobalVariable</code>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#codroid.models.GlobalVariable" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+
+
+
+        <p>全局变量数据模型 / Global Variable Data Model.</p>
+
+
+<p><span class="doc-section-title">属性：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><span title="codroid.models.GlobalVariable.value">value</span></code></b>
+              (<code><span title="typing.Any">Any</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>变量值 (支持 int, float, str, list, dict) / Variable value.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="codroid.models.GlobalVariable.note">note</span></code></b>
+              (<code><span title="typing.Optional">Optional</span>[<span title="str">str</span>]</code>)
+          –
+          <div class="doc-md-description">
+            <p>变量备注 (nm) / Variable note.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="codroid.models.GlobalVariable.to_robot_format" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">to_robot_format</span><span class="p">()</span></code>
+
+<a href="#codroid.models.GlobalVariable.to_robot_format" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>将 Python 对象转换为机器人协议要求的格式化字典。
+Convert Python object to formatted dict required by robot protocol.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div><h3 id="32-coordinatetype">3.2 坐标系类型 (CoordinateType)<a class="headerlink" href="#32-coordinatetype" title="Permanent link">&para;</a></h3>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="codroid.models.CoordinateType" class="doc doc-heading">
+            <code>codroid.models.CoordinateType</code>
+
+
+<a href="#codroid.models.CoordinateType" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="str">str</span></code>, <code><span title="enum.Enum">Enum</span></code></p>
+
+
+
+        <p>坐标系类型枚举 / Coordinate System Type Enum.</p>
+
+
+<p><span class="doc-section-title">属性：</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><span title="codroid.models.CoordinateType.USER">USER</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>用户坐标系 / User coordinate system.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><span title="codroid.models.CoordinateType.TOOL">TOOL</span></code></b>
+          –
+          <div class="doc-md-description">
+            <p>工具坐标系 / Tool coordinate system.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><h3 id="33-rs485">3.3 RS485 配置枚举<a class="headerlink" href="#33-rs485" title="Permanent link">&para;</a></h3>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="codroid.models.RS485BaudRate" class="doc doc-heading">
+            <code>codroid.models.RS485BaudRate</code>
+
+
+<a href="#codroid.models.RS485BaudRate" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="enum.IntEnum">IntEnum</span></code></p>
+
+
+
+        <p>末端 485 波特率枚举 / RS485 Baud Rate.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="codroid.models.RS485StopBits" class="doc doc-heading">
+            <code>codroid.models.RS485StopBits</code>
+
+
+<a href="#codroid.models.RS485StopBits" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="enum.IntEnum">IntEnum</span></code></p>
+
+
+
+        <p>RS485 停止位 / RS485 Stop Bits.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="codroid.models.RS485Parity" class="doc doc-heading">
+            <code>codroid.models.RS485Parity</code>
+
+
+<a href="#codroid.models.RS485Parity" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="enum.IntEnum">IntEnum</span></code></p>
+
+
+
+        <p>RS485 校验位 / RS485 Parity.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><hr />
+<h2 id="4-cri-cri-models">4. CRI 实时数据结构 (CRI Models)<a class="headerlink" href="#4-cri-cri-models" title="Permanent link">&para;</a></h2>
+<p>用于解析从 9030 端口推送的高频二进制数据流。</p>
+<h3 id="41-cridata">4.1 实时数据汇总 (CRIData)<a class="headerlink" href="#41-cridata" title="Permanent link">&para;</a></h3>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="codroid.models.CRIData" class="doc doc-heading">
+            <code>codroid.models.CRIData</code>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#codroid.models.CRIData" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+
+
+
+        <p>CRI 完整实时数据包 / CRI Full Real-time Data Packet.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><h3 id="42-cristatus">4.2 详细系统状态 (CRIStatus)<a class="headerlink" href="#42-cristatus" title="Permanent link">&para;</a></h3>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="codroid.models.CRIStatus" class="doc doc-heading">
+            <code>codroid.models.CRIStatus</code>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#codroid.models.CRIStatus" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+
+
+
+        <p>详细的机器人系统状态解析结果 / Detailed Robot System Status.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div><h3 id="43-crimask">4.3 推送掩码 (CRIMask)<a class="headerlink" href="#43-crimask" title="Permanent link">&para;</a></h3>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="codroid.models.CRIMask" class="doc doc-heading">
+            <code>codroid.models.CRIMask</code>
+
+
+<a href="#codroid.models.CRIMask" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="enum.IntFlag">IntFlag</span></code></p>
+
+
+
+        <p>CRI 推送掩码 (位操作) / CRI Push Mask (Bitmask).</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["toc.follow", "navigation.top"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

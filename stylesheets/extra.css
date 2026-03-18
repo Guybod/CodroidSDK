@@ -1,0 +1,19 @@
+/* 1. 隐藏函数 Docstring 的主体文字描述（防止双语重复） */
+/* .doc-section-docstring {
+    display: none !important;
+} */
+
+/* 2. 确保 Args, Returns 等结构化信息是显示的 */
+.doc-section-parameters, 
+.doc-section-returns, 
+.doc-section-raises {
+    display: block !important;
+    margin-top: 0.5em;
+}
+
+/* 3. 让函数名那一栏保持美观 */
+.doc-heading {
+    background-color: rgba(var(--md-primary-fg-color--rgb), 0.05);
+    padding: 8px;
+    border-radius: 4px;
+}
