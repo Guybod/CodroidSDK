@@ -1,7 +1,7 @@
 # Codroid
 
-[![PyPI - Version](https://img.shields.io/pypi/v/CodroidSDK.svg)](https://pypi.org/project/CodroidSDK)
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/CodroidSDK.svg)](https://pypi.org/project/CodroidSDK)
+[![PyPI - Version](https://img.shields.io/pypi/v/codroid-robot-sdk.svg)](https://pypi.org/project/Codrcodroid-robot-sdkoidSDK)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/codroid-robot-sdk.svg)](https://pypi.org/project/codroid-robot-sdk)
 
 -----
 
@@ -25,8 +25,8 @@ from codroid import CodroidControlInterface
 
 # Initialize and connect automatically
 with CodroidControlInterface(host="192.168.1.136") as robot:
-    robot.enable_robot()
-    robot.stop()
+    robot.to_remote()
+    robot.switch_on()
 ```
 
 ## License
